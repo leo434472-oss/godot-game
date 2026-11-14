@@ -1,14 +1,12 @@
 [gd_scene format=3 uid="uid://bfjof2mhugqhp"]
 
-[ext_resource type="Script" uid="uid://rkjkr4jx3nbw" path="res://gun.gd" id="1_4flbx"]
+[ext_resource type="Script" uid="uid://dtfaoxviqceoo" path="res://player.gd" id="1_onrkg"]
 [ext_resource type="Texture2D" uid="uid://dqln0co1u5q70" path="res://first gun.png" id="2_onrkg"]
 
-[node name="Player" type="Node2D" unique_id=486150449 groups=["Player"]]
+[node name="Player" type="CharacterBody2D" unique_id=156258959 groups=["Player"]]
+script = ExtResource("1_onrkg")
 
-[node name="Gun" type="CharacterBody2D" parent="." unique_id=481142593]
-script = ExtResource("1_4flbx")
-
-[node name="Sprite2D" type="Sprite2D" parent="Gun" unique_id=1961614394]
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1961614394]
 position = Vector2(27, 12.000008)
 scale = Vector2(0.05090332, 0.045410153)
 texture = ExtResource("2_onrkg")
