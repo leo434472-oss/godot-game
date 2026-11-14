@@ -4,6 +4,10 @@
 [ext_resource type="FontFile" uid="uid://bysc47c2iiipm" path="res://game-paused-demo/Game Paused DEMO.otf" id="2_oi3di"]
 [ext_resource type="Script" uid="uid://c15kdf70uw8e6" path="res://button.gd" id="3_0b4ue"]
 
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_032qo"]
+normal = Vector2(0.9999996, -0.0008985159)
+distance = -1081.9987
+
 [node name="level" type="Node2D" unique_id=1452691641]
 script = ExtResource("1_u52ul")
 
@@ -25,6 +29,12 @@ theme_override_fonts/font = ExtResource("2_oi3di")
 theme_override_font_sizes/font_size = 50
 text = "QUIT"
 script = ExtResource("3_0b4ue")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=51093097]
+rotation = -1.5707964
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=110514171]
+shape = SubResource("WorldBoundaryShape2D_032qo")
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="pressed" from="quit_button" to="." method="_on_button_pressed"]
