@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://duomg7ljt7asb" path="res://main_menu.gd" id="1_06t4h"]
 [ext_resource type="FontFile" uid="uid://bysc47c2iiipm" path="res://game-paused-demo/Game Paused DEMO.otf" id="2_7vrkn"]
+[ext_resource type="Script" uid="uid://nnac0pjnoulg" path="res://start_button.gd" id="3_fu7sn"]
 
 [node name="Main menu" type="Control" unique_id=1546883524]
 layout_mode = 3
@@ -45,6 +46,9 @@ theme_override_colors/font_color = Color(0.16078432, 0.972549, 0.5019608, 1)
 theme_override_fonts/font = ExtResource("2_7vrkn")
 theme_override_font_sizes/font_size = 100
 text = "Start"
+script = ExtResource("3_fu7sn")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="CenterContainer/VBoxContainer/StartButton" unique_id=562549786]
 
 [node name="OptionsButton" type="Button" parent="CenterContainer/VBoxContainer" unique_id=176494831]
 layout_mode = 2
@@ -60,6 +64,7 @@ theme_override_fonts/font = ExtResource("2_7vrkn")
 theme_override_font_sizes/font_size = 75
 text = "Quit"
 
+[connection signal="mouse_entered" from="CenterContainer/VBoxContainer/StartButton" to="CenterContainer/VBoxContainer/StartButton" method="_on_mouse_entered"]
 [connection signal="pressed" from="CenterContainer/VBoxContainer/StartButton" to="." method="_on_start_button_pressed"]
 [connection signal="pressed" from="CenterContainer/VBoxContainer/OptionsButton" to="." method="_on_options_button_pressed"]
 [connection signal="pressed" from="CenterContainer/VBoxContainer/QuitButton" to="." method="_on_quit_button_pressed"]
