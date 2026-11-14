@@ -1,0 +1,65 @@
+[gd_scene format=3 uid="uid://dheyb4nxt5roj"]
+
+[ext_resource type="Script" uid="uid://duomg7ljt7asb" path="res://main_menu.gd" id="1_06t4h"]
+[ext_resource type="FontFile" uid="uid://bysc47c2iiipm" path="res://game-paused-demo/Game Paused DEMO.otf" id="2_7vrkn"]
+
+[node name="Main menu" type="Control" unique_id=1546883524]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_06t4h")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1699604880]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.4675247, 0.50200725, 0.48850602, 1)
+
+[node name="CenterContainer" type="CenterContainer" parent="." unique_id=374466228]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer" unique_id=181134285]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CenterContainer/VBoxContainer" unique_id=2066978215]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.45882353, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_7vrkn")
+theme_override_font_sizes/font_size = 200
+text = "Bounce that Boi"
+
+[node name="StartButton" type="Button" parent="CenterContainer/VBoxContainer" unique_id=199107726]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.16078432, 0.972549, 0.5019608, 1)
+theme_override_fonts/font = ExtResource("2_7vrkn")
+theme_override_font_sizes/font_size = 100
+text = "Start"
+
+[node name="OptionsButton" type="Button" parent="CenterContainer/VBoxContainer" unique_id=176494831]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_7vrkn")
+theme_override_font_sizes/font_size = 50
+text = "Options"
+
+[node name="QuitButton" type="Button" parent="CenterContainer/VBoxContainer" unique_id=183737260]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.89357716, 0, 0.20770067, 1)
+theme_override_colors/icon_normal_color = Color(1, 0.5647059, 1, 1)
+theme_override_fonts/font = ExtResource("2_7vrkn")
+theme_override_font_sizes/font_size = 75
+text = "Quit"
+
+[connection signal="pressed" from="CenterContainer/VBoxContainer/StartButton" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/OptionsButton" to="." method="_on_options_button_pressed"]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/QuitButton" to="." method="_on_quit_button_pressed"]

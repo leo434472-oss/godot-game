@@ -1,0 +1,30 @@
+[gd_scene format=3 uid="uid://brt0py7y4ge5b"]
+
+[ext_resource type="Script" uid="uid://b6ifj0g5m3j4x" path="res://level.gd" id="1_u52ul"]
+[ext_resource type="FontFile" uid="uid://bysc47c2iiipm" path="res://game-paused-demo/Game Paused DEMO.otf" id="2_oi3di"]
+[ext_resource type="Script" uid="uid://c15kdf70uw8e6" path="res://button.gd" id="3_0b4ue"]
+
+[node name="level" type="Node2D" unique_id=1452691641]
+script = ExtResource("1_u52ul")
+
+[node name="Timer" type="Timer" parent="." unique_id=1709929050]
+autostart = true
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=630661440]
+offset_right = 1929.0
+offset_bottom = 1090.0
+color = Color(0.11372549, 0.30980393, 0.09019608, 0.37254903)
+
+[node name="quit_button" type="Button" parent="." unique_id=2137996892]
+offset_left = 1711.0
+offset_top = 55.0
+offset_right = 1872.0
+offset_bottom = 114.0
+theme_override_colors/font_color = Color(0.9411085, 0.497531, 0.51050764, 1)
+theme_override_fonts/font = ExtResource("2_oi3di")
+theme_override_font_sizes/font_size = 50
+text = "QUIT"
+script = ExtResource("3_0b4ue")
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="pressed" from="quit_button" to="." method="_on_button_pressed"]
