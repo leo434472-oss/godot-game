@@ -1,9 +1,15 @@
 extends Node2D
 
+const GUN_PLAYER_SCENE = preload("res://player.tscn")
+
 @export var enemy_scene: PackedScene = preload("res://enemy.tscn")
-# Called when the node enters the scene tree for the first time.
+func spawn_player(spawn_position: Vector2) -> void:
+	var player = GUN_PLAYER_SCENE.instantiate()
+	add_child(player)
+	player.global_position = spawn_position
+
 func _ready() -> void:
-	pass # Replace with function body.
+	spawn_player(Vector2(500,500))
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
