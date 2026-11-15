@@ -2,7 +2,7 @@ extends Node2D
 
 const GUN_PLAYER_SCENE: PackedScene = preload("res://player.tscn")
 var kill_count: int = 0
-var total_kills = 0
+var total_kills : int = 0
 @onready var coins: Label = $UI/Coins
 @onready var kill_label: Label = $UI/KillCount
 @onready var countdown: Label = $UI/Countdown
