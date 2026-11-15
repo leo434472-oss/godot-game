@@ -18,6 +18,7 @@ func _process(delta):
 	look_at(get_global_mouse_position())
 
 func take_damage(amount):
+	print('takingdamage')
 	player_health -= amount
 	print(player_health)
 	if player_health<=0:

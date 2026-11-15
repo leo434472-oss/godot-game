@@ -18,3 +18,11 @@ texture = ExtResource("2_era6v")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=247657339]
 position = Vector2(0, 2)
 shape = SubResource("CircleShape2D_onrkg")
+
+[node name="Hitbox" type="Area2D" parent="." unique_id=273894015]
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Hitbox" unique_id=594498266]
+position = Vector2(0, 2)
+shape = SubResource("CircleShape2D_onrkg")
+
+[connection signal="area_entered" from="Hitbox" to="." method="_on_hitbox_area_entered"]

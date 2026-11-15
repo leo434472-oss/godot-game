@@ -28,9 +28,13 @@ func _physics_process(delta: float) -> void:
 
 
 
-func _on_area_2d_body_entered(body: Node2D) -> void:
+
+
+
+func _on_hitbox_area_entered(area: Area2D) -> void:
 	print('touching')
-	if body.is_in_group("Player"):
-		if body.has_method("take_damage"):
-			print('attacking')
-			body.take_damage(enemy_normal_damage)
+	if area.is_in_group('Player'):
+		print('in group player')
+		if area.has_method('take_damage'):
+			
+			area.take_damage(enemy_normal_damage)
