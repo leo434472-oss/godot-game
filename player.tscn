@@ -11,5 +11,10 @@ position = Vector2(27, 12.000008)
 scale = Vector2(0.05090332, 0.045410153)
 texture = ExtResource("2_onrkg")
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." unique_id=228761799]
+[node name="Area2D" type="Area2D" parent="." unique_id=1604798201]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D" unique_id=228761799]
 polygon = PackedVector2Array(-18, 40, -8, 10, 15, 11, 19, -4, 46, -5, 47, -22, -37, -24, -39, -13, -43, -7, -42, -5, -37, -7, -33, -7, -31, -3, -28, 0, -29, 3, -36, 21, -39, 25, -40, 28, -39, 33, -37, 36, -39, 38, -17, 41)
+
+[node name="Muzzle" type="Marker2D" parent="." unique_id=822706832]
+position = Vector2(49, -18)

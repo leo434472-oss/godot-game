@@ -1,22 +1,36 @@
 extends Node2D
 
-const GUN_PLAYER_SCENE = preload("res://player.tscn")
+const GUN_PLAYER_SCENE: PackedScene = preload("res://player.tscn")
+
+@onready var countdown: Label = $Countdown
+@onready var countdown_time: Timer = $Timer2
 
 @export var enemy_scene: PackedScene = preload("res://enemy.tscn")
+
 func spawn_player(spawn_position: Vector2) -> void:
 	var player = GUN_PLAYER_SCENE.instantiate()
 	add_child(player)
 	player.global_position = spawn_position
 
 func _ready() -> void:
-	spawn_player(Vector2(500,500))
+	countdown.add_theme_font_override("font", preload("res://game-paused-demo/Game Paused DEMO.otf"))
+	spawn_player(Vector2(500, 500))
+	if countdown_time:
+		countdown_time.start()
 
+func _countdown() -> String:
+	var seconds: int = int(ceil(countdown_time.time_left))
+	return str(seconds)
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
+func _process(_delta: float) -> void:
+	if countdown and countdown_time:
+		countdown.text = _countdown()
 
-
+func _on_timer_2_timeout() -> void:
+	countdown.hide()
+	$Timer.start()
+	_on_timer_timeout()
+	
 func _on_timer_timeout() -> void:
 	var enemy = enemy_scene.instantiate()
 	enemy.position = Vector2(randf_range(1700, 1800), randf_range(0, 1080))

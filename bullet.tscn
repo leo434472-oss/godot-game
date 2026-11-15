@@ -1,10 +1,11 @@
 [gd_scene format=3 uid="uid://bxidj17klfg1n"]
 
-[ext_resource type="Texture2D" uid="uid://b50ehjqeoaul8" path="res://Screenshot 2026-11-14 at 1.50.14 PM.png" id="1_v7oki"]
 [ext_resource type="Script" uid="uid://qlwo3tfgsjlu" path="res://bullet.gd" id="1_v8qja"]
+[ext_resource type="Texture2D" uid="uid://gh1a6f53xcvw" path="res://pngtree-golden-bullet-vector-icon-design-png-image_14815618.png" id="2_v8qja"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_glbon"]
-size = Vector2(11.182344, 11.805698)
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_032qo"]
+radius = 0.53972316
+height = 13.26142
 
 [node name="Node2D" type="Node2D" unique_id=486150449]
 
@@ -13,14 +14,15 @@ scale = Vector2(2.2013283, 1.7896388)
 script = ExtResource("1_v8qja")
 
 [node name="Sprite2D" type="Sprite2D" parent="Bullet" unique_id=1632927802]
-position = Vector2(51.342422, 40.43556)
-scale = Vector2(0.14844905, -0.056363743)
-texture = ExtResource("1_v7oki")
+position = Vector2(-5.9604645e-08, 0)
+rotation = 1.5707964
+scale = Vector2(0.05568087, 0.074809425)
+texture = ExtResource("2_v8qja")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Bullet" unique_id=1499642293]
-position = Vector2(51.34646, 40.83379)
-rotation = 3.1415925
-scale = Vector2(4.1411734, -1.5072244)
-shape = SubResource("RectangleShape2D_glbon")
+position = Vector2(0.4542712, 0)
+rotation = 1.5707964
+scale = Vector2(4.1411734, -1.5072241)
+shape = SubResource("CapsuleShape2D_032qo")
 
 [connection signal="area_entered" from="Bullet" to="Bullet" method="_on_area_entered"]
