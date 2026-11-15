@@ -24,7 +24,11 @@ func take_damage(amount):
 	if player_health<=0:
 		_lose()
 func _lose():
+<<<<<<< HEAD
 		get_tree().change_scene_to_file("res://game_over.tscn")
+=======
+	get_tree().quit()
+>>>>>>> parent of c381791 (damage)
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("shoot"):
