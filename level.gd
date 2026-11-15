@@ -2,10 +2,22 @@ extends Node2D
 
 const GUN_PLAYER_SCENE: PackedScene = preload("res://player.tscn")
 var kill_count: int = 0
-@onready var kill_label: Label = $KillCount
-@onready var countdown: Label = $Countdown
-@onready var countdown_time: Timer = $Timer2
-@export var enemy_scene: PackedScene = preload("res://enemy.tscn")
+@onready var kill_label: Label = $UI/KillCount
+@onready var countdown: Label = $UI/Countdown
+@onready var countdown_time: Timer = $UI/Timer2
+const enemy_scene: PackedScene = preload("res://enemy_normal.tscn")
+
+@onready var damage_label: Label = $UI/Stats/DamageSt
+@onready var health_label: Label = $UI/Stats/HealthSt
+@onready var speed_label: Label = $UI/Stats/SpeedSt
+
+func update_upgrade_price():
+	pass
+
+func update_ui() -> void:
+	damage_label.text = "Damage: " + str(Stats.damage)
+	health_label.text = "Max Health: " + str(Stats.max_health)
+	speed_label.text = "Speed: " + str(Stats.speed)
 
 func spawn_player(spawn_position: Vector2) -> void:
 	var player = GUN_PLAYER_SCENE.instantiate()
@@ -13,6 +25,7 @@ func spawn_player(spawn_position: Vector2) -> void:
 	player.global_position = spawn_position
 
 func _ready() -> void:
+	update_ui()
 	kill_label.text = "Kills: 0"
 	Events.died.connect(_killcount)
 	spawn_player(Vector2(500, 500))

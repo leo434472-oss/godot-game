@@ -1,11 +1,17 @@
 extends CharacterBody2D
-var player_health : int = 200
 @export var bullet_scene: PackedScene = preload("res://bullet.tscn")
 @onready var muzzle: Marker2D = $Muzzle
+var speed: float
+var max_health: int
+var player_health: int
+func _ready() -> void:
+	speed = Stats.speed
+	max_health = Stats.max_health
+	player_health = max_health
 
 func _physics_process(delta):
 	var input_direction = Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
-	velocity = input_direction * 400
+	velocity = input_direction * speed
 	move_and_slide()
 
 func _process(delta):
