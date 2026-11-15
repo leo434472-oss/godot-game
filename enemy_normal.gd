@@ -1,6 +1,6 @@
 extends CharacterBody2D
 var killcount : int = 0
-var enemy_normal_speed = 0
+var enemy_normal_speed = 100
 var enemy_normal_health :int= 100
 var enemy_normal_damage :int = 15
 func _ready() -> void:
