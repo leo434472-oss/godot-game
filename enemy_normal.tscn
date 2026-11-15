@@ -6,7 +6,7 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7xaro"]
 size = Vector2(69.99988, 70)
 
-[node name="enemy_normal" type="CharacterBody2D" unique_id=1136318364 groups=["Player"]]
+[node name="enemy_normal" type="CharacterBody2D" unique_id=1136318364]
 script = ExtResource("1_era6v")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1891681812]
@@ -14,11 +14,6 @@ position = Vector2(4.4107437e-06, 1.9999999)
 scale = Vector2(0.43209878, 0.46666664)
 texture = ExtResource("2_n20b5")
 
-[node name="Area2D" type="Area2D" parent="." unique_id=270581442]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=247657339]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=247657339]
 position = Vector2(0, 2)
 shape = SubResource("RectangleShape2D_7xaro")
-
-[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
-[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

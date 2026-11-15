@@ -344,6 +344,14 @@ rotation = -1.5707964
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=110514171]
 shape = SubResource("WorldBoundaryShape2D_032qo")
 
+[node name="KillCount" type="Label" parent="." unique_id=1439580454]
+offset_left = 39.0
+offset_top = 43.0
+offset_right = 299.0
+offset_bottom = 194.0
+theme_override_fonts/font = ExtResource("2_oi3di")
+theme_override_font_sizes/font_size = 50
+
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="timeout" from="Timer2" to="." method="_on_timer_2_timeout"]
 [connection signal="pressed" from="quit_button" to="." method="_on_button_pressed"]

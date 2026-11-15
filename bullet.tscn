@@ -7,22 +7,21 @@
 radius = 0.53972316
 height = 13.26142
 
-[node name="Node2D" type="Node2D" unique_id=486150449]
-
-[node name="Bullet" type="Area2D" parent="." unique_id=1997762171]
-scale = Vector2(2.2013283, 1.7896388)
+[node name="Bulllet" type="Area2D" unique_id=1169367951]
+priority = 1
 script = ExtResource("1_v8qja")
 
-[node name="Sprite2D" type="Sprite2D" parent="Bullet" unique_id=1632927802]
-position = Vector2(-5.9604645e-08, 0)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1499642293]
+position = Vector2(1, 0)
 rotation = 1.5707964
-scale = Vector2(0.05568087, 0.074809425)
-texture = ExtResource("2_v8qja")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Bullet" unique_id=1499642293]
-position = Vector2(0.4542712, 0)
-rotation = 1.5707964
-scale = Vector2(4.1411734, -1.5072241)
+scale = Vector2(7.4112043, -3.317895)
 shape = SubResource("CapsuleShape2D_032qo")
 
-[connection signal="area_entered" from="Bullet" to="Bullet" method="_on_area_entered"]
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1632927802]
+position = Vector2(-1.3120939e-07, 0)
+rotation = 1.5707964
+scale = Vector2(0.09964865, 0.16468011)
+texture = ExtResource("2_v8qja")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

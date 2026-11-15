@@ -1,18 +1,20 @@
 extends CharacterBody2D
-
+var killcount : int = 0
 var enemy_normal_speed = 300.0
 var enemy_normal_health :int= 100
 var enemy_normal_damage :int = 15
-
 func _ready() -> void:
 	pass
-func _take_damage(amount):
+func take_damage(amount: int) -> void:
 	enemy_normal_health -= amount
-	print(enemy_normal_health)
+	modulate = Color.RED
+	await get_tree().create_timer(0.1).timeout
+	modulate = Color.WHITE
 	if enemy_normal_health <= 0:
-		_die()
+		die()
 		
-func _die():
+func die():
+	Events.died.emit()
 	queue_free()
 	
 	
@@ -25,8 +27,6 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 
 
-func _on_area_2d_area_entered(area: Area2D) -> void:
-	print("AREA DÉTECTÉE : ", area.name)
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	print('touching')
