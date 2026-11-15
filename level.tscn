@@ -75,17 +75,25 @@ offset_bottom = 40.0
 
 [node name="UpgradeButtons" type="VBoxContainer" parent="UI" unique_id=1278066420]
 layout_mode = 0
-offset_right = 132.0
-offset_bottom = 128.0
+offset_left = 34.0
+offset_top = 913.0
+offset_right = 334.0
+offset_bottom = 992.0
 
 [node name="DamageUp" type="Button" parent="UI/UpgradeButtons" unique_id=1451287550]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("2_0b4ue")
+theme_override_font_sizes/font_size = 50
 
 [node name="HealthUp" type="Button" parent="UI/UpgradeButtons" unique_id=728286862]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("2_0b4ue")
+theme_override_font_sizes/font_size = 50
 
 [node name="SpeedUp" type="Button" parent="UI/UpgradeButtons" unique_id=636027224]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("2_0b4ue")
+theme_override_font_sizes/font_size = 50
 
 [node name="Stats" type="VBoxContainer" parent="UI" unique_id=1309251616]
 layout_mode = 0

@@ -12,13 +12,23 @@ const enemy_more_HP_scene: PackedScene = preload("res://enemy_more_HP.tscn")
 @onready var health_label: Label = $UI/Stats/HealthSt
 @onready var speed_label: Label = $UI/Stats/SpeedSt
 
+var DamageUpPrice = 1
+var HealthUpPrice = 1
+var SpeedUpPrice = 1
+@onready var damage_price: Button = $UI/UpgradeButtons/DamageUp
+@onready var health_price: Button = $UI/UpgradeButtons/HealthUp
+@onready var speed_price: Button = $UI/UpgradeButtons/SpeedUp
+
 func update_upgrade_price():
-	pass
+	health_price.text = "Upgrade Health" + '(' + str(HealthUpPrice) + ' kill.s' + ')'
+	damage_price.text = "Upgrade Damage" + '(' + str(DamageUpPrice) + ' kill.s' + ')'
+	speed_price.text = "Upgrade Speed" + '(' + str(SpeedUpPrice) + ' kill.s' + ')'
 
 func update_ui() -> void:
 	damage_label.text = "Damage: " + str(Stats.damage)
 	health_label.text = "Max Health: " + str(Stats.max_health)
 	speed_label.text = "Speed: " + str(Stats.speed)
+	
 
 func spawn_player(spawn_position: Vector2) -> void:
 	var player = GUN_PLAYER_SCENE.instantiate()
@@ -27,6 +37,7 @@ func spawn_player(spawn_position: Vector2) -> void:
 
 func _ready() -> void:
 	update_ui()
+	
 	kill_label.text = "Kills: 0"
 	Events.died.connect(_killcount)
 	spawn_player(Vector2(500, 500))
@@ -38,6 +49,7 @@ func _countdown() -> String:
 	return str(seconds)
 
 func _process(_delta: float) -> void:
+	update_upgrade_price()
 	if countdown and countdown_time:
 		countdown.text = _countdown()
 
