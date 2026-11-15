@@ -1,16 +1,16 @@
 extends CharacterBody2D
 var killcount : int = 0
 var enemy_fast_speed = 200
-var enemy_normal_health :int= 100
+var enemy_fast_health :int= 100
 var enemy_normal_damage :int = 15
 func _ready() -> void:
 	pass
 func take_damage(amount: int) -> void:
-	enemy_normal_health -= amount
+	enemy_fast_health -= amount
 	modulate = Color.RED
 	await get_tree().create_timer(0.1).timeout
 	modulate = Color.WHITE
-	if enemy_normal_health <= 0:
+	if enemy_fast_health <= 0:
 		die()
 		
 func die():
