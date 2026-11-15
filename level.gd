@@ -5,8 +5,8 @@ var kill_count: int = 0
 @onready var kill_label: Label = $UI/KillCount
 @onready var countdown: Label = $UI/Countdown
 @onready var countdown_time: Timer = $UI/Timer2
-const enemy_scene: PackedScene = preload("res://enemy_normal.tscn")
-
+const enemy_normal_scene: PackedScene = preload("res://enemy_normal.tscn")
+const enemy_fast_scene: PackedScene = preload("res://enemy_fast.tscn")
 @onready var damage_label: Label = $UI/Stats/DamageSt
 @onready var health_label: Label = $UI/Stats/HealthSt
 @onready var speed_label: Label = $UI/Stats/SpeedSt
@@ -46,9 +46,13 @@ func _on_timer_2_timeout() -> void:
 	_on_timer_timeout()
 	
 func _on_timer_timeout() -> void:
-	var enemy = enemy_scene.instantiate()
-	enemy.position = Vector2(randf_range(1700, 1800), randf_range(0, 1080))
-	add_child(enemy)
+	var enemy_normal = enemy_normal_scene.instantiate()
+	enemy_normal.position = Vector2(randf_range(1700, 1800), randf_range(0, 1080))
+	add_child(enemy_normal)
+	
+	var enemy_fast = enemy_fast_scene.instantiate()
+	enemy_fast.position = Vector2(randf_range(1700, 1800), randf_range(0, 1080))
+	add_child(enemy_fast)
 
 func _killcount():
 	kill_count += 1
