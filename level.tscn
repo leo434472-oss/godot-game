@@ -7,33 +7,43 @@
 [ext_resource type="Texture2D" uid="uid://c0kgw73bet41u" path="res://1000_F_238160225_JE2dSQuY2neTOui4HunAMlX5lC3MqSA0 (1).png" id="5_f2txt"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_h3wsx"]
-size = Vector2(424, 567)
+size = Vector2(437.44147, 547.7501)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_r3u8s"]
-size = Vector2(596, 270)
+size = Vector2(638.42883, 313)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_05w1u"]
-size = Vector2(353, 122)
+size = Vector2(387.156, 145.40375)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kp4u4"]
-size = Vector2(647, 326)
+size = Vector2(645.3732, 326)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_4gyqm"]
-size = Vector2(1158, 395.00006)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ajodo"]
+size = Vector2(511, 230)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_qi2p4"]
-size = Vector2(94, 1989)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ntjt8"]
+size = Vector2(558.5, 295)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_iifgy"]
-size = Vector2(1213, 148)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_f2txt"]
+size = Vector2(385.00003, 609.5)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_ojleq"]
-size = Vector2(212.00012, 2310.5)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1ainy"]
+size = Vector2(170, 1165)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_61boy"]
+size = Vector2(2041, 465)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_itgm1"]
+size = Vector2(486, 2054)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_krcgb"]
+size = Vector2(3629, 1068)
 
 [node name="level" type="Node2D" unique_id=1452691641]
 script = ExtResource("1_u52ul")
 
 [node name="CharacterBody2D" type="StaticBody2D" parent="." unique_id=2065741569]
+position = Vector2(50, 450)
 scale = Vector2(0.545, 0.545)
 collision_layer = 3
 
@@ -59,10 +69,10 @@ position = Vector2(841.5, 906)
 shape = SubResource("RectangleShape2D_kp4u4")
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=630661440]
-offset_left = -4.0
-offset_top = -11.0
-offset_right = 1925.0
-offset_bottom = 1079.0
+offset_left = -2159.0
+offset_top = -205.0
+offset_right = -230.0
+offset_bottom = 885.0
 color = Color(0.11372549, 0.30980393, 0.09019608, 0.37254903)
 
 [node name="Timer" type="Timer" parent="." unique_id=1709929050]
@@ -99,7 +109,7 @@ theme_override_font_sizes/font_size = 50
 layout_mode = 0
 offset_left = 34.0
 offset_top = 130.0
-offset_right = 139.0
+offset_right = 144.0
 offset_bottom = 341.0
 
 [node name="DamageSt" type="Label" parent="UI/Stats" unique_id=1012961486]
@@ -124,10 +134,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = 950.0
-offset_top = 461.0
-offset_right = 1153.0
-offset_bottom = 696.0
+offset_left = 39.0
+offset_top = 220.0
+offset_right = 242.0
+offset_bottom = 455.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_fonts/font = ExtResource("2_0b4ue")
@@ -158,27 +168,96 @@ offset_bottom = 194.0
 theme_override_fonts/font = ExtResource("2_0b4ue")
 theme_override_font_sizes/font_size = 50
 
-[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=51093097]
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1326072139]
 rotation = -1.5707964
 collision_layer = 3
-collision_mask = 3
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=110514171]
-position = Vector2(-521, -200.00003)
-shape = SubResource("RectangleShape2D_4gyqm")
+[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D" unique_id=165726624]
+position = Vector2(-523.339, 1326.0001)
+scale = Vector2(1.1422378, 1.1254567)
+texture = ExtResource("5_f2txt")
 
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D" unique_id=272101902]
-position = Vector2(46.999958, 972)
-rotation = -3.1415925
-shape = SubResource("RectangleShape2D_qi2p4")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=1332465467]
+position = Vector2(-279.50006, 1142)
+shape = SubResource("RectangleShape2D_ajodo")
 
-[node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D" unique_id=1691378215]
-position = Vector2(-570.00006, 1987)
-shape = SubResource("RectangleShape2D_iifgy")
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D" unique_id=963444654]
+position = Vector2(-299.75006, 1477)
+shape = SubResource("RectangleShape2D_ntjt8")
 
-[node name="CollisionShape2D4" type="CollisionShape2D" parent="StaticBody2D" unique_id=233346809]
-position = Vector2(-1182, 862.99994)
-shape = SubResource("RectangleShape2D_ojleq")
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D" unique_id=1145955930]
+position = Vector2(-836.50006, 1320.25)
+shape = SubResource("RectangleShape2D_f2txt")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="StaticBody2D" unique_id=621568673]
+
+[node name="CharacterBody2D2" type="StaticBody2D" parent="." unique_id=1898462223]
+position = Vector2(50, 450)
+scale = Vector2(0.545, 0.545)
+collision_layer = 3
+
+[node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D2" unique_id=687338990]
+position = Vector2(582, 735)
+scale = Vector2(1.316, 1.2648903)
+texture = ExtResource("5_f2txt")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D2" unique_id=275239685]
+position = Vector2(220.18341, 669.72485)
+shape = SubResource("RectangleShape2D_h3wsx")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="CharacterBody2D2" unique_id=234292097]
+position = Vector2(862, 526)
+shape = SubResource("RectangleShape2D_r3u8s")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="CharacterBody2D2" unique_id=1409175134]
+position = Vector2(220.5, 1006)
+shape = SubResource("RectangleShape2D_05w1u")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="CharacterBody2D2" unique_id=1983385348]
+position = Vector2(859.2139, 906.00006)
+shape = SubResource("RectangleShape2D_kp4u4")
+
+[node name="CharacterBody2D3" type="StaticBody2D" parent="." unique_id=1627280044]
+position = Vector2(50, 450)
+scale = Vector2(0.545, 0.545)
+collision_layer = 3
+
+[node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D3" unique_id=1443918878]
+position = Vector2(609.17426, -383.48624)
+scale = Vector2(1.316, 1.2648903)
+texture = ExtResource("5_f2txt")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D3" unique_id=1675118470]
+position = Vector2(240.36694, -455.04584)
+shape = SubResource("RectangleShape2D_h3wsx")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="CharacterBody2D3" unique_id=1041541414]
+position = Vector2(902.7008, -587.15594)
+shape = SubResource("RectangleShape2D_r3u8s")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="CharacterBody2D3" unique_id=1352722223]
+position = Vector2(255.96333, -116.738525)
+shape = SubResource("RectangleShape2D_05w1u")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="CharacterBody2D3" unique_id=1237378707]
+position = Vector2(906.173, -225.68811)
+shape = SubResource("RectangleShape2D_kp4u4")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1663122176]
+position = Vector2(-77, 569)
+shape = SubResource("RectangleShape2D_1ainy")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="." unique_id=906304845]
+position = Vector2(1022, -227)
+shape = SubResource("RectangleShape2D_61boy")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="." unique_id=2067856274]
+position = Vector2(2151, 434)
+shape = SubResource("RectangleShape2D_itgm1")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="." unique_id=1900533584]
+position = Vector2(1634, 1608)
+shape = SubResource("RectangleShape2D_krcgb")
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="timeout" from="UI/Timer2" to="." method="_on_timer_2_timeout"]
