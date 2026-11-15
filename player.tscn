@@ -1,13 +1,24 @@
 [gd_scene format=3 uid="uid://bfjof2mhugqhp"]
 
 [ext_resource type="Script" uid="uid://dtfaoxviqceoo" path="res://player.gd" id="1_onrkg"]
+[ext_resource type="PackedScene" uid="uid://bxidj17klfg1n" path="res://bullet.tscn" id="2_hqtel"]
 [ext_resource type="Texture2D" uid="uid://chiqb7lk3bg3d" path="res://1xuo7j0mb1b91.png" id="2_i3pqv"]
+[ext_resource type="FontFile" uid="uid://cu01fv3voudwi" path="res://PixelPurl.ttf" id="3_i3pqv"]
 
 [node name="Node2D" type="Node2D" unique_id=364565614 groups=["Player"]]
 scale = Vector2(0.345, 0.345)
 
 [node name="Player" type="CharacterBody2D" parent="." unique_id=1763412074]
 script = ExtResource("1_onrkg")
+bullet_scene = ExtResource("2_hqtel")
+
+[node name="AmmoCount" type="Label" parent="Player" unique_id=104708011]
+offset_left = 55.072464
+offset_top = 40.579712
+offset_right = 243.47826
+offset_bottom = 126.57971
+theme_override_fonts/font = ExtResource("3_i3pqv")
+theme_override_font_sizes/font_size = 100
 
 [node name="Sprite2D" type="Sprite2D" parent="Player" unique_id=2040237533]
 position = Vector2(11.999998, 19)
