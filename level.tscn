@@ -76,9 +76,9 @@ offset_bottom = 40.0
 [node name="UpgradeButtons" type="VBoxContainer" parent="UI" unique_id=1278066420]
 layout_mode = 0
 offset_left = 34.0
-offset_top = 913.0
+offset_top = 849.0
 offset_right = 334.0
-offset_bottom = 992.0
+offset_bottom = 928.0
 
 [node name="DamageUp" type="Button" parent="UI/UpgradeButtons" unique_id=1451287550]
 layout_mode = 2
@@ -158,6 +158,20 @@ offset_bottom = 194.0
 theme_override_fonts/font = ExtResource("2_0b4ue")
 theme_override_font_sizes/font_size = 50
 
+[node name="Coins" type="Label" parent="UI" unique_id=770319665]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 10.281
+anchor_top = 1.0
+anchor_right = 14.837001
+anchor_bottom = 3.3400002
+offset_left = 172.76001
+offset_top = 7.0
+offset_right = 250.51996
+offset_bottom = 64.399994
+theme_override_fonts/font = ExtResource("2_0b4ue")
+theme_override_font_sizes/font_size = 50
+
 [node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=51093097]
 rotation = -1.5707964
 collision_layer = 3
@@ -181,5 +195,8 @@ position = Vector2(-1182, 862.99994)
 shape = SubResource("RectangleShape2D_ojleq")
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="pressed" from="UI/UpgradeButtons/DamageUp" to="." method="_on_damage_up_pressed"]
+[connection signal="pressed" from="UI/UpgradeButtons/HealthUp" to="." method="_on_health_up_pressed"]
+[connection signal="pressed" from="UI/UpgradeButtons/SpeedUp" to="." method="_on_speed_up_pressed"]
 [connection signal="timeout" from="UI/Timer2" to="." method="_on_timer_2_timeout"]
 [connection signal="pressed" from="UI/quit_button" to="." method="_on_button_pressed"]
