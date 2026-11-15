@@ -1,29 +1,20 @@
 [gd_scene format=3 uid="uid://bfjof2mhugqhp"]
 
-[ext_resource type="Script" uid="uid://dtfaoxviqceoo" path="res://player.gd" id="1_onrkg"]
-[ext_resource type="Script" uid="uid://dnwrrqoxmkv56" path="res://hurtbox.gd" id="2_i3pqv"]
-[ext_resource type="Texture2D" uid="uid://chiqb7lk3bg3d" path="res://1xuo7j0mb1b91.png" id="3_i3pqv"]
+[ext_resource type="Script" uid="uid://cjjvx4cqmhqa2" path="res://enemy_fast.gd" id="1_onrkg"]
+[ext_resource type="Texture2D" uid="uid://dhx7veixmk1at" path="res://Rond_rouge.png" id="2_i3pqv"]
 
-[node name="Player" type="CharacterBody2D" unique_id=156258959 groups=["Player"]]
-scale = Vector2(0.8, 0.8)
-collision_layer = 2
+[sub_resource type="CircleShape2D" id="CircleShape2D_onrkg"]
+radius = 36.013885
+
+[node name="enemy_fast" type="CharacterBody2D" unique_id=1136318364]
 collision_mask = 2
 script = ExtResource("1_onrkg")
 
-[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="." unique_id=1215868916]
-position = Vector2(-1.25, 0)
-scale = Vector2(0.995, 0.995)
-polygon = PackedVector2Array(-16.33166, 37.688442, -8.79397, 11.306532, 10.050251, 11.306532, 10.050251, 2.5125628, 48.994976, -1.2562814, 50.251255, -22.613064, -37.68844, -22.613064, -36.43216, -12.562814, -38.94472, -3.7688441, -30.150753, 1.2562814, -41.457283, 27.638191, -32.663315, 37.688442)
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1891681812]
+position = Vector2(-0.49999756, 2.9999995)
+scale = Vector2(0.14884697, 0.14893617)
+texture = ExtResource("2_i3pqv")
 
-[node name="Hurtbox" type="Area2D" parent="." unique_id=1604798201 groups=["Player"]]
-scale = Vector2(0.995, 0.995)
-script = ExtResource("2_i3pqv")
-
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1961614394]
-position = Vector2(2.5, 7.5000005)
-scale = Vector2(0.140625, 0.13281249)
-texture = ExtResource("3_i3pqv")
-
-[node name="Muzzle" type="Marker2D" parent="." unique_id=822706832]
-position = Vector2(49, -18)
-scale = Vector2(0.995, 0.995)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=247657339]
+position = Vector2(0, 2)
+shape = SubResource("CircleShape2D_onrkg")
