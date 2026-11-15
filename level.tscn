@@ -6,18 +6,6 @@
 [ext_resource type="Script" uid="uid://c15kdf70uw8e6" path="res://button.gd" id="3_0b4ue"]
 [ext_resource type="Texture2D" uid="uid://c0kgw73bet41u" path="res://1000_F_238160225_JE2dSQuY2neTOui4HunAMlX5lC3MqSA0 (1).png" id="5_f2txt"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_4gyqm"]
-size = Vector2(1158, 395.00006)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_qi2p4"]
-size = Vector2(94, 1989)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_iifgy"]
-size = Vector2(1213, 148)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_ojleq"]
-size = Vector2(212.00012, 2310.5)
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_h3wsx"]
 size = Vector2(424, 567)
 
@@ -30,14 +18,51 @@ size = Vector2(353, 122)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kp4u4"]
 size = Vector2(647, 326)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4gyqm"]
+size = Vector2(1158, 395.00006)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qi2p4"]
+size = Vector2(94, 1989)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_iifgy"]
+size = Vector2(1213, 148)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ojleq"]
+size = Vector2(212.00012, 2310.5)
+
 [node name="level" type="Node2D" unique_id=1452691641]
 script = ExtResource("1_u52ul")
 
+[node name="CharacterBody2D" type="StaticBody2D" parent="." unique_id=2065741569]
+scale = Vector2(0.545, 0.545)
+collision_layer = 3
+
+[node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D" unique_id=1218851665]
+position = Vector2(582, 735)
+scale = Vector2(1.316, 1.2648903)
+texture = ExtResource("5_f2txt")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D" unique_id=349120726]
+position = Vector2(221, 678)
+shape = SubResource("RectangleShape2D_h3wsx")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="CharacterBody2D" unique_id=640986034]
+position = Vector2(862, 526)
+shape = SubResource("RectangleShape2D_r3u8s")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="CharacterBody2D" unique_id=231939721]
+position = Vector2(220.5, 1006)
+shape = SubResource("RectangleShape2D_05w1u")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="CharacterBody2D" unique_id=2011480577]
+position = Vector2(841.5, 906)
+shape = SubResource("RectangleShape2D_kp4u4")
+
 [node name="ColorRect" type="ColorRect" parent="." unique_id=630661440]
-offset_left = -7.0
-offset_top = -3.0
-offset_right = 1922.0
-offset_bottom = 1087.0
+offset_left = -4.0
+offset_top = -11.0
+offset_right = 1925.0
+offset_bottom = 1079.0
 color = Color(0.11372549, 0.30980393, 0.09019608, 0.37254903)
 
 [node name="Timer" type="Timer" parent="." unique_id=1709929050]
@@ -146,30 +171,6 @@ shape = SubResource("RectangleShape2D_iifgy")
 [node name="CollisionShape2D4" type="CollisionShape2D" parent="StaticBody2D" unique_id=233346809]
 position = Vector2(-1182, 862.99994)
 shape = SubResource("RectangleShape2D_ojleq")
-
-[node name="CharacterBody2D" type="StaticBody2D" parent="." unique_id=2065741569]
-collision_layer = 3
-
-[node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D" unique_id=1218851665]
-position = Vector2(582, 735)
-scale = Vector2(1.316, 1.2648903)
-texture = ExtResource("5_f2txt")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D" unique_id=349120726]
-position = Vector2(221, 678)
-shape = SubResource("RectangleShape2D_h3wsx")
-
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="CharacterBody2D" unique_id=640986034]
-position = Vector2(862, 526)
-shape = SubResource("RectangleShape2D_r3u8s")
-
-[node name="CollisionShape2D3" type="CollisionShape2D" parent="CharacterBody2D" unique_id=231939721]
-position = Vector2(220.5, 1006)
-shape = SubResource("RectangleShape2D_05w1u")
-
-[node name="CollisionShape2D4" type="CollisionShape2D" parent="CharacterBody2D" unique_id=2011480577]
-position = Vector2(841.5, 906)
-shape = SubResource("RectangleShape2D_kp4u4")
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="timeout" from="UI/Timer2" to="." method="_on_timer_2_timeout"]
