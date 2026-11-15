@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://bfjof2mhugqhp"]
 
 [ext_resource type="Script" uid="uid://dtfaoxviqceoo" path="res://player.gd" id="1_onrkg"]
+[ext_resource type="Script" uid="uid://dnwrrqoxmkv56" path="res://hurtbox.gd" id="2_i3pqv"]
 [ext_resource type="Texture2D" uid="uid://dqln0co1u5q70" path="res://first gun.png" id="2_onrkg"]
 
 [node name="Player" type="CharacterBody2D" unique_id=156258959 groups=["Player"]]
@@ -12,6 +13,7 @@ script = ExtResource("1_onrkg")
 polygon = PackedVector2Array(-18, 40, -8, 10, 15, 11, 19, -4, 46, -5, 47, -22, -37, -24, -39, -13, -43, -7, -42, -5, -37, -7, -33, -7, -31, -3, -28, 0, -29, 3, -36, 21, -39, 25, -40, 28, -39, 33, -37, 36, -39, 38, -17, 41)
 
 [node name="Hurtbox" type="Area2D" parent="." unique_id=1604798201 groups=["Player"]]
+script = ExtResource("2_i3pqv")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Hurtbox" unique_id=228761799]
 polygon = PackedVector2Array(-18, 40, -8, 10, 15, 11, 19, -4, 46, -5, 47, -22, -37, -24, -39, -13, -43, -7, -42, -5, -37, -7, -33, -7, -31, -3, -28, 0, -29, 3, -36, 21, -39, 25, -40, 28, -39, 33, -37, 36, -39, 38, -17, 41)
