@@ -5,18 +5,20 @@
 [ext_resource type="FontFile" uid="uid://bysc47c2iiipm" path="res://game-paused-demo/Game Paused DEMO.otf" id="2_oi3di"]
 [ext_resource type="Script" uid="uid://c15kdf70uw8e6" path="res://button.gd" id="3_0b4ue"]
 
-[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_032qo"]
-normal = Vector2(0.9999996, -0.0008985159)
-distance = -1093.0175
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4gyqm"]
+size = Vector2(1158, 395.00006)
 
-[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_0r1o6"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qi2p4"]
+size = Vector2(94, 1989)
 
-[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_ojleq"]
-distance = -1911.0
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_iifgy"]
+size = Vector2(1213, 148)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ojleq"]
+size = Vector2(212.00012, 2310.5)
 
 [node name="level" type="Node2D" unique_id=1452691641]
 script = ExtResource("1_u52ul")
-enemy_scene = null
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=630661440]
 offset_right = 1929.0
@@ -110,18 +112,25 @@ theme_override_font_sizes/font_size = 50
 
 [node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=51093097]
 rotation = -1.5707964
+collision_layer = 3
+collision_mask = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=110514171]
-position = Vector2(26, 1.0000012)
-shape = SubResource("WorldBoundaryShape2D_032qo")
+position = Vector2(-521, -200.00003)
+shape = SubResource("RectangleShape2D_4gyqm")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D" unique_id=272101902]
-position = Vector2(2, 9)
-rotation = 3.1415927
-shape = SubResource("WorldBoundaryShape2D_0r1o6")
+position = Vector2(46.999958, 972)
+rotation = -3.1415925
+shape = SubResource("RectangleShape2D_qi2p4")
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D" unique_id=1691378215]
-shape = SubResource("WorldBoundaryShape2D_ojleq")
+position = Vector2(-570.00006, 1987)
+shape = SubResource("RectangleShape2D_iifgy")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="StaticBody2D" unique_id=233346809]
+position = Vector2(-1187, 858.99994)
+shape = SubResource("RectangleShape2D_ojleq")
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="timeout" from="UI/Timer2" to="." method="_on_timer_2_timeout"]

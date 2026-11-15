@@ -32,5 +32,4 @@ func _unhandled_input(event: InputEvent) -> void:
 func shoot() -> void:
 	var bullet = bullet_scene.instantiate()
 	get_tree().current_scene.add_child(bullet)
-	bullet.global_position = muzzle.global_position
-	bullet.global_rotation = global_rotation
+	bullet.start(muzzle.global_position, global_rotation)

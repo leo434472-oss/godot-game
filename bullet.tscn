@@ -7,8 +7,7 @@
 radius = 0.53972316
 height = 13.26142
 
-[node name="Bulllet" type="Area2D" unique_id=1169367951]
-priority = 1
+[node name="Bulllet" type="Area2D" unique_id=234554583]
 script = ExtResource("1_v8qja")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1499642293]
@@ -23,5 +22,7 @@ rotation = 1.5707964
 scale = Vector2(0.09964865, 0.16468011)
 texture = ExtResource("2_v8qja")
 
-[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[node name="RayCast2D" type="RayCast2D" parent="." unique_id=50733196]
+target_position = Vector2(20, 0)
+
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

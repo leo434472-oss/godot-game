@@ -1,7 +1,7 @@
 extends Node
 
-var speed: float = 200.0
-var damage: int = 10
+var speed: float = 600.0
+var damage: int = 20
 var max_health: int = 100
 
 # Called when the node enters the scene tree for the first time.

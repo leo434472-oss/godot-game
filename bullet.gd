@@ -1,15 +1,35 @@
 extends Area2D
-
-@export var speed: float = 800
+var direction: Vector2 = Vector2.RIGHT
+var hasbounced : bool = false
+@onready var ray: RayCast2D = $RayCast2D
+@export var bullet_speed: float = 800
 @export var damage : int 
 
 func _ready() -> void:
-		damage = Stats.damage
-
+	direction = Vector2.RIGHT.rotated(global_rotation)
+	damage = Stats.damage
+	await get_tree().create_timer(3.0).timeout
+	queue_free()
+	
+func start(pos: Vector2, rot: float) -> void:
+	global_position = pos
+	global_rotation = rot
+	direction = Vector2.RIGHT.rotated(rot)
+	
 func _physics_process(delta: float) -> void:
-	position += transform.x * speed * delta
+	if ray.is_colliding():
+		var wall_normal: Vector2 = ray.get_collision_normal()
+		direction = direction.bounce(wall_normal)
+		rotation = direction.angle()
+		ray.force_raycast_update()
+		hasbounced = true
+		
+	position += direction * bullet_speed * delta
 
 func _on_body_entered(body: Node2D) -> void:
-	if body.has_method("take_damage") and not is_in_group("Player"):
-		body.take_damage(damage)
-		queue_free()
+	if body.is_in_group("Player"):
+		return
+	if body.has_method("take_damage"):
+		if hasbounced:
+			body.take_damage(damage)
+			queue_free()
