@@ -68,13 +68,6 @@ shape = SubResource("RectangleShape2D_05w1u")
 position = Vector2(841.5, 906)
 shape = SubResource("RectangleShape2D_kp4u4")
 
-[node name="ColorRect" type="ColorRect" parent="." unique_id=630661440]
-offset_left = -2159.0
-offset_top = -205.0
-offset_right = -230.0
-offset_bottom = 885.0
-color = Color(0.11372549, 0.30980393, 0.09019608, 0.37254903)
-
 [node name="Timer" type="Timer" parent="." unique_id=1709929050]
 
 [node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1326072139]
@@ -177,7 +170,7 @@ offset_bottom = 40.0
 [node name="UpgradeButtons" type="VBoxContainer" parent="UI" unique_id=1278066420]
 layout_mode = 0
 offset_left = 34.0
-offset_top = 913.0
+offset_top = 823.0
 offset_right = 334.0
 offset_bottom = 992.0
 
