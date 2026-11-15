@@ -19,10 +19,10 @@ size = Vector2(387.156, 145.40375)
 size = Vector2(645.3732, 326)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ajodo"]
-size = Vector2(511, 230)
+size = Vector2(698.5, 348)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ntjt8"]
-size = Vector2(558.5, 295)
+size = Vector2(765.25, 432)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_f2txt"]
 size = Vector2(385.00003, 609.5)
@@ -173,20 +173,20 @@ rotation = -1.5707964
 collision_layer = 3
 
 [node name="Sprite2D" type="Sprite2D" parent="StaticBody2D" unique_id=165726624]
-position = Vector2(-523.339, 1326.0001)
-scale = Vector2(1.1422378, 1.1254567)
+position = Vector2(-958, 1374)
+scale = Vector2(1.5223341, 1.6388264)
 texture = ExtResource("5_f2txt")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=1332465467]
-position = Vector2(-279.50006, 1142)
+position = Vector2(-624.25006, 1106)
 shape = SubResource("RectangleShape2D_ajodo")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D" unique_id=963444654]
-position = Vector2(-299.75006, 1477)
+position = Vector2(-644.62506, 1595)
 shape = SubResource("RectangleShape2D_ntjt8")
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D" unique_id=1145955930]
-position = Vector2(-836.50006, 1320.25)
+position = Vector2(410.99994, -354)
 shape = SubResource("RectangleShape2D_f2txt")
 
 [node name="CollisionShape2D4" type="CollisionShape2D" parent="StaticBody2D" unique_id=621568673]
