@@ -25,8 +25,6 @@ func take_damage(amount):
 		_lose()
 func _lose():
 	get_tree().change_scene_to_file("res://game_over.tscn")
-	get_tree().quit()
-
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("shoot"):
 		shoot()

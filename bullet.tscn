@@ -8,6 +8,7 @@ radius = 0.53972316
 height = 13.26142
 
 [node name="Bulllet" type="Area2D" unique_id=234554583]
+scale = Vector2(0.505, 0.515)
 script = ExtResource("1_v8qja")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1499642293]
