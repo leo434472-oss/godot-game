@@ -1,29 +1,20 @@
 [gd_scene format=3 uid="uid://bfjof2mhugqhp"]
 
-[ext_resource type="Script" uid="uid://dtfaoxviqceoo" path="res://player.gd" id="1_onrkg"]
-[ext_resource type="Script" uid="uid://dnwrrqoxmkv56" path="res://hurtbox.gd" id="2_i3pqv"]
-[ext_resource type="Texture2D" uid="uid://dqln0co1u5q70" path="res://first gun.png" id="2_onrkg"]
+[ext_resource type="Script" uid="uid://cjjvx4cqmhqa2" path="res://enemy_fast.gd" id="1_onrkg"]
+[ext_resource type="Texture2D" uid="uid://dhx7veixmk1at" path="res://Rond_rouge.png" id="2_i3pqv"]
 
-[node name="Player" type="CharacterBody2D" unique_id=156258959 groups=["Player"]]
-collision_layer = 2
+[sub_resource type="CircleShape2D" id="CircleShape2D_onrkg"]
+radius = 36.013885
+
+[node name="enemy_fast" type="CharacterBody2D" unique_id=1136318364]
 collision_mask = 2
 script = ExtResource("1_onrkg")
 
-[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="." unique_id=1215868916]
-polygon = PackedVector2Array(-18, 40, -8, 10, 15, 11, 19, -4, 46, -5, 47, -22, -37, -24, -39, -13, -43, -7, -42, -5, -37, -7, -33, -7, -31, -3, -28, 0, -29, 3, -36, 21, -39, 25, -40, 28, -39, 33, -37, 36, -39, 38, -17, 41)
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1891681812]
+position = Vector2(-0.49999756, 2.9999995)
+scale = Vector2(0.14884697, 0.14893617)
+texture = ExtResource("2_i3pqv")
 
-[node name="Hurtbox" type="Area2D" parent="." unique_id=1604798201 groups=["Player"]]
-script = ExtResource("2_i3pqv")
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Hurtbox" unique_id=228761799]
-polygon = PackedVector2Array(-18, 40, -8, 10, 15, 11, 19, -4, 46, -5, 47, -22, -37, -24, -39, -13, -43, -7, -42, -5, -37, -7, -33, -7, -31, -3, -28, 0, -29, 3, -36, 21, -39, 25, -40, 28, -39, 33, -37, 36, -39, 38, -17, 41)
-
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1961614394]
-position = Vector2(27, 12.000008)
-scale = Vector2(0.05090332, 0.045410153)
-texture = ExtResource("2_onrkg")
-
-[node name="Muzzle" type="Marker2D" parent="." unique_id=822706832]
-position = Vector2(49, -18)
-
-[node name="Camera2D" type="Camera2D" parent="." unique_id=54248437]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=247657339]
+position = Vector2(0, 2)
+shape = SubResource("CircleShape2D_onrkg")
