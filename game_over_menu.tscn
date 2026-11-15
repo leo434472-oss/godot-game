@@ -1,0 +1,116 @@
+[gd_scene format=3 uid="uid://bjn0o5q2kjip7"]
+
+[ext_resource type="Script" uid="uid://duomg7ljt7asb" path="res://main_menu.gd" id="1_17l84"]
+[ext_resource type="AudioStream" uid="uid://daqp10jxtwbko" path="res://519985__abdrtar__recording-start.mp3" id="2_a3fl3"]
+[ext_resource type="AudioStream" uid="uid://3mflqmmehmp0" path="res://704134__entershift__beep-sound.mp3" id="3_bayw5"]
+[ext_resource type="FontFile" uid="uid://bysc47c2iiipm" path="res://game-paused-demo/Game Paused DEMO.otf" id="4_20gq0"]
+[ext_resource type="Script" uid="uid://nnac0pjnoulg" path="res://start_button.gd" id="5_ytxt5"]
+[ext_resource type="AudioStream" uid="uid://4amvlupexxxb" path="res://freesound_community-i-am-dreaming-or-final-fantasy-menu-kinda-thing-29173.mp3" id="6_5e6r1"]
+
+[node name="Main menu" type="Control" unique_id=1546883524]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_17l84")
+
+[node name="StartSound" type="AudioStreamPlayer" parent="." unique_id=562549786]
+stream = ExtResource("2_a3fl3")
+
+[node name="QuitSound" type="AudioStreamPlayer" parent="." unique_id=2119333970]
+stream = ExtResource("3_bayw5")
+volume_db = 24.0
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1699604880]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.4675247, 0.50200725, 0.48850602, 1)
+
+[node name="CenterContainer" type="CenterContainer" parent="." unique_id=374466228]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -3.0
+offset_right = -3.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer" unique_id=181134285]
+layout_mode = 2
+
+[node name="GameTitle" type="Label" parent="CenterContainer/VBoxContainer" unique_id=2066978215]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.45882353, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_20gq0")
+theme_override_font_sizes/font_size = 200
+text = "Bounce that Boi"
+
+[node name="StartButton" type="Button" parent="CenterContainer/VBoxContainer" unique_id=199107726]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.84712857, 0.9804687, 0.83077407, 1)
+theme_override_fonts/font = ExtResource("4_20gq0")
+theme_override_font_sizes/font_size = 100
+text = "Start"
+script = ExtResource("5_ytxt5")
+
+[node name="QuitButton" type="Button" parent="CenterContainer/VBoxContainer" unique_id=183737260]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.999988, 0.6035838, 0.5940889, 1)
+theme_override_colors/icon_normal_color = Color(1, 0.5647059, 1, 1)
+theme_override_fonts/font = ExtResource("4_20gq0")
+theme_override_font_sizes/font_size = 75
+text = "Quit"
+
+[node name="RichTextLabel" type="RichTextLabel" parent="." unique_id=1472904166]
+visibility_layer = 2
+layout_mode = 0
+offset_left = 261.0
+offset_top = 328.0
+offset_right = 1718.0
+offset_bottom = 539.0
+mouse_filter = 2
+theme_override_colors/default_color = Color(0.68422776, 0.30422428, 0.25251213, 1)
+theme_override_fonts/normal_font = ExtResource("4_20gq0")
+theme_override_font_sizes/normal_font_size = 200
+bbcode_enabled = true
+text = "[wave amp=50.0 freq=5.0 connected=1]Bounce that Boi[/wave]"
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="." unique_id=300273877]
+layout_mode = 0
+offset_left = 893.0
+offset_top = 661.0
+offset_right = 1056.0
+offset_bottom = 747.0
+mouse_filter = 2
+theme_override_colors/default_color = Color(0.93333334, 0.14117648, 0.23137255, 1)
+theme_override_fonts/normal_font = ExtResource("4_20gq0")
+theme_override_font_sizes/normal_font_size = 75
+bbcode_enabled = true
+text = "[wave amp=50.0 freq=5.0 connected=1]Quit[/wave]"
+
+[node name="RichTextLabel3" type="RichTextLabel" parent="." unique_id=2141750126]
+layout_mode = 0
+offset_left = 836.0
+offset_top = 547.0
+offset_right = 1121.0
+offset_bottom = 653.0
+mouse_filter = 2
+theme_override_colors/default_color = Color(0.40784314, 0.88235295, 0.34509805, 1)
+theme_override_fonts/normal_font = ExtResource("4_20gq0")
+theme_override_font_sizes/normal_font_size = 100
+bbcode_enabled = true
+text = "[wave amp=50.0 freq=5.0 connected=1]Start[/wave]"
+
+[node name="MenuSound" type="AudioStreamPlayer" parent="." unique_id=706244947]
+stream = ExtResource("6_5e6r1")
+
+[connection signal="mouse_entered" from="CenterContainer/VBoxContainer/StartButton" to="CenterContainer/VBoxContainer/StartButton" method="_on_mouse_entered"]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/StartButton" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/QuitButton" to="." method="_on_quit_button_pressed"]

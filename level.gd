@@ -8,6 +8,7 @@ var kill_count: int = 0
 const enemy_normal_scene: PackedScene = preload("res://enemy_normal.tscn")
 const enemy_fast_scene: PackedScene = preload("res://enemy_fast.tscn")
 const enemy_more_HP_scene: PackedScene = preload("res://enemy_more_HP.tscn")
+const buff_enemy_scene: PackedScene = preload("res://buff_enemy.tscn")
 @onready var damage_label: Label = $UI/Stats/DamageSt
 @onready var health_label: Label = $UI/Stats/HealthSt
 @onready var speed_label: Label = $UI/Stats/SpeedSt
@@ -58,6 +59,10 @@ func _on_timer_timeout() -> void:
 	var enemy_more_HP = enemy_more_HP_scene.instantiate()
 	enemy_more_HP.position = Vector2(randf_range(1700, 1800), randf_range(0, 1080))
 	add_child(enemy_more_HP)
+	
+	var buff_enemy = buff_enemy_scene.instantiate()
+	buff_enemy.position = Vector2(randf_range(1700, 1800), randf_range(0, 1080))
+	add_child(buff_enemy)
 
 func _killcount():
 	kill_count += 1
