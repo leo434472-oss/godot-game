@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://2eq56mn1gwrv" path="res://Rond_bleu.png" id="2_r2ive"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_onrkg"]
-radius = 55.027267
+radius = 48.166378
 
 [node name="enemy_more_HP" type="CharacterBody2D" unique_id=1136318364]
 collision_mask = 2
@@ -16,5 +16,5 @@ scale = Vector2(0.2159329, 0.21702129)
 texture = ExtResource("2_r2ive")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=247657339]
-position = Vector2(0, 4)
+position = Vector2(0, 3)
 shape = SubResource("CircleShape2D_onrkg")
