@@ -1,26 +1,26 @@
 extends Node2D
 
-const GUN_PLAYER_SCENE: PackedScene = preload("res://player.tscn")
+const GUN_PLAYER_SCENE: PackedScene = preload("res://Player/player.tscn")
 var kill_count: int = 0
 var total_kills : int = 0
-@onready var coins: Label = $UI/Coins
-@onready var kill_label: Label = $UI/KillCount
-@onready var countdown: Label = $UI/Countdown
-@onready var countdown_time: Timer = $UI/Timer2
-const enemy_normal_scene: PackedScene = preload("res://enemy_normal.tscn")
-const enemy_fast_scene: PackedScene = preload("res://enemy_fast.tscn")
-const enemy_more_HP_scene: PackedScene = preload("res://enemy_more_HP.tscn")
-const buff_enemy_scene: PackedScene = preload("res://buff_enemy.tscn")
-@onready var damage_label: Label = $UI/Stats/DamageSt
-@onready var health_label: Label = $UI/Stats/HealthSt
-@onready var speed_label: Label = $UI/Stats/SpeedSt
+@onready var coins: Label = $HUD/UI/Coins
+@onready var kill_label: Label = $HUD/UI/KillCount
+@onready var countdown: Label = $HUD/UI/Countdown
+@onready var countdown_time: Timer = $HUD/UI/Timer2
+const enemy_normal_scene: PackedScene = preload("res://Ennemies/enemy_normal.tscn")
+const enemy_fast_scene: PackedScene = preload("res://Ennemies/enemy_fast.tscn")
+const enemy_more_HP_scene: PackedScene = preload("res://Ennemies/enemy_more_HP.tscn")
+const buff_enemy_scene: PackedScene = preload("res://Ennemies/buff_enemy.tscn")
+@onready var damage_label: Label = $HUD/UI/Stats/DamageSt
+@onready var health_label: Label = $HUD/UI/Stats/HealthSt
+@onready var speed_label: Label = $HUD/UI/Stats/SpeedSt
 
 var DamageUpPrice = 1
 var HealthUpPrice = 1
 var SpeedUpPrice = 1
-@onready var damage_price: Button = $UI/UpgradeButtons/DamageUp
-@onready var health_price: Button = $UI/UpgradeButtons/HealthUp
-@onready var speed_price: Button = $UI/UpgradeButtons/SpeedUp
+@onready var damage_price: Button = $HUD/UI/UpgradeButtons/DamageUp
+@onready var health_price: Button = $HUD/UI/UpgradeButtons/HealthUp
+@onready var speed_price: Button = $HUD/UI/UpgradeButtons/SpeedUp
 
 func update_upgrade_price():
 	health_price.text = "Upgrade Health (%d kills)" % HealthUpPrice
@@ -37,7 +37,7 @@ func upgrade_damage():
 	if total_kills >= DamageUpPrice:
 		total_kills -= DamageUpPrice
 		Stats.damage += 20
-		DamageUpPrice += 1 # Scale price up so it gets harder next time!
+		DamageUpPrice += 1 
 		update_ui()
 		update_upgrade_price()
 	else:
@@ -49,7 +49,7 @@ func upgrade_health():
 	if total_kills >= HealthUpPrice:
 		total_kills -= HealthUpPrice
 		Stats.max_health += 20
-		HealthUpPrice += 1 # Scale price up
+		HealthUpPrice += 1 
 		update_ui()
 		update_upgrade_price()
 	else:
@@ -61,7 +61,7 @@ func upgrade_speed():
 	if total_kills >= SpeedUpPrice:
 		total_kills -= SpeedUpPrice
 		Stats.speed += 20
-		SpeedUpPrice += 1 # Scale price up
+		SpeedUpPrice += 1 
 		update_ui()
 		update_upgrade_price()
 	else:
@@ -69,10 +69,10 @@ func upgrade_speed():
 		await get_tree().create_timer(0.5).timeout
 		update_upgrade_price()
 
-func spawn_player(spawn_position: Vector2) -> void:
-	var player = GUN_PLAYER_SCENE.instantiate()
-	add_child(player)
-	player.global_position = spawn_position
+#func spawn_player(spawn_position: Vector2) -> void:
+	#var player = GUN_PLAYER_SCENE.instantiate()
+	#add_child(player)
+	#player.global_position = spawn_position
 
 func _ready() -> void:
 	update_ui()
@@ -80,7 +80,8 @@ func _ready() -> void:
 
 	kill_label.text = "Kills: 0"
 	Events.died.connect(_killcount)
-	spawn_player(Vector2(500, 500))
+	$Player.global_position = Vector2(500,500)
+	#spawn_player(Vector2(500, 500))
 	if countdown_time:
 		countdown_time.start()
 
@@ -94,7 +95,7 @@ func _process(_delta: float) -> void:
 
 func _on_timer_2_timeout() -> void:
 	countdown.hide()
-	$Timer.start()
+	$EnemySpawnTimer.start()
 	_on_timer_timeout()
 	
 func _on_timer_timeout() -> void:

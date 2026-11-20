@@ -1,0 +1,74 @@
+[gd_scene format=3 uid="uid://v7a5ru187nfb"]
+
+[ext_resource type="FontFile" uid="uid://cu01fv3voudwi" path="res://Fonts/PixelPurl.ttf" id="1_gt22q"]
+[ext_resource type="Script" uid="uid://b7asu8gxhfegc" path="res://game_over_screen.gd" id="1_w3hxg"]
+
+[node name="GameOverScreen" type="Control" unique_id=1948523553]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_w3hxg")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=569777759]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.895236, 0.45977777, 0.37494197, 1)
+
+[node name="Label" type="Label" parent="." unique_id=1913828179]
+layout_mode = 0
+offset_left = 224.0
+offset_top = 192.0
+offset_right = 1724.0
+offset_bottom = 534.0
+size_flags_horizontal = 4
+size_flags_vertical = 0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("1_gt22q")
+theme_override_font_sizes/font_size = 400
+text = "GAME OVER"
+horizontal_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Label" unique_id=38341983]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -9.0
+offset_top = 98.0
+offset_right = 6.0
+offset_bottom = 278.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="RetryButton" type="Button" parent="Label" unique_id=398473203]
+layout_mode = 0
+offset_left = -73.0
+offset_top = 440.0
+offset_right = 786.0
+offset_bottom = 620.0
+offset_transform_enabled = true
+theme_override_fonts/font = ExtResource("1_gt22q")
+theme_override_font_sizes/font_size = 150
+text = "I BOUNCE BACK"
+
+[node name="QuitButton" type="Button" parent="Label" unique_id=275290866]
+layout_mode = 0
+offset_left = 912.0
+offset_top = 440.0
+offset_right = 1322.0
+offset_bottom = 620.0
+offset_transform_enabled = true
+theme_override_fonts/font = ExtResource("1_gt22q")
+theme_override_font_sizes/font_size = 150
+text = "I QUIT."
+
+[connection signal="pressed" from="Label/RetryButton" to="." method="_on_retry_button_pressed"]
+[connection signal="pressed" from="Label/QuitButton" to="." method="_on_quit_button_pressed"]

@@ -1,0 +1,40 @@
+[gd_scene format=3 uid="uid://bfjof2mhugqhp"]
+
+[ext_resource type="Script" uid="uid://dtfaoxviqceoo" path="res://Player/player.gd" id="1_k53q1"]
+[ext_resource type="PackedScene" uid="uid://bxidj17klfg1n" path="res://Player/bullet.tscn" id="2_fhl08"]
+[ext_resource type="FontFile" uid="uid://cu01fv3voudwi" path="res://Fonts/PixelPurl.ttf" id="3_vtle1"]
+[ext_resource type="Texture2D" uid="uid://chiqb7lk3bg3d" path="res://Sprites/PlayerSprite.png" id="4_od3ui"]
+[ext_resource type="AudioStream" uid="uid://cbvhlt1fv0smn" path="res://Sounds/PlayerDeathSound.wav" id="5_00tjw"]
+
+[node name="Player" type="CharacterBody2D" unique_id=1763412074 groups=["Player"]]
+scale = Vector2(0.5, 0.5)
+script = ExtResource("1_k53q1")
+bullet_scene = ExtResource("2_fhl08")
+
+[node name="AmmoCount" type="Label" parent="." unique_id=104708011]
+offset_left = 55.072464
+offset_top = 40.579712
+offset_right = 243.47826
+offset_bottom = 126.57971
+theme_override_fonts/font = ExtResource("3_vtle1")
+theme_override_font_sizes/font_size = 100
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=2040237533]
+position = Vector2(11.999998, 19)
+scale = Vector2(0.27265626, 0.2539063)
+texture = ExtResource("4_od3ui")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." unique_id=1202025982]
+polygon = PackedVector2Array(-70, -44, 104, -44, 104, 4, 32, 7, 31, 28, -13, 29, -27, 81, -75, 73, -78, 58, -57, 10, -76, -2)
+
+[node name="Muzzle" type="Marker2D" parent="." unique_id=930635594]
+position = Vector2(42, -26)
+
+[node name="DeathSound" type="AudioStreamPlayer2D" parent="." unique_id=331303691]
+stream = ExtResource("5_00tjw")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=957987243]
+zoom = Vector2(1.5, 1.5)
+
+[node name="Node2D" type="Node2D" parent="." unique_id=364565614 groups=["Player"]]
+scale = Vector2(0.345, 0.345)

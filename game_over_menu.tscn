@@ -1,11 +1,11 @@
 [gd_scene format=3 uid="uid://bjn0o5q2kjip7"]
 
 [ext_resource type="Script" uid="uid://duomg7ljt7asb" path="res://main_menu.gd" id="1_17l84"]
-[ext_resource type="AudioStream" uid="uid://daqp10jxtwbko" path="res://519985__abdrtar__recording-start.mp3" id="2_a3fl3"]
-[ext_resource type="AudioStream" uid="uid://3mflqmmehmp0" path="res://704134__entershift__beep-sound.mp3" id="3_bayw5"]
-[ext_resource type="FontFile" uid="uid://bysc47c2iiipm" path="res://game-paused-demo/Game Paused DEMO.otf" id="4_20gq0"]
+[ext_resource type="AudioStream" uid="uid://daqp10jxtwbko" path="res://Sounds/StartSound.mp3" id="2_a3fl3"]
+[ext_resource type="AudioStream" uid="uid://3mflqmmehmp0" path="res://Sounds/704134__entershift__beep-sound.mp3" id="3_bayw5"]
+[ext_resource type="FontFile" uid="uid://bysc47c2iiipm" path="res://Fonts/Game Paused DEMO.otf" id="4_20gq0"]
 [ext_resource type="Script" uid="uid://nnac0pjnoulg" path="res://start_button.gd" id="5_ytxt5"]
-[ext_resource type="AudioStream" uid="uid://4amvlupexxxb" path="res://freesound_community-i-am-dreaming-or-final-fantasy-menu-kinda-thing-29173.mp3" id="6_5e6r1"]
+[ext_resource type="AudioStream" uid="uid://4amvlupexxxb" path="res://Sounds/MainMenuMusic.mp3" id="6_5e6r1"]
 
 [node name="Main menu" type="Control" unique_id=1546883524]
 layout_mode = 3

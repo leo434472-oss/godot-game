@@ -1,0 +1,35 @@
+[gd_scene format=3 uid="uid://bxidj17klfg1n"]
+
+[ext_resource type="Script" uid="uid://qlwo3tfgsjlu" path="res://Player/bullet.gd" id="1_d7yj7"]
+[ext_resource type="Texture2D" uid="uid://gh1a6f53xcvw" path="res://Sprites/BulletSprite.png" id="2_ggrph"]
+[ext_resource type="AudioStream" uid="uid://nw45oduym8ah" path="res://Sounds/SteelonConcrete3.wav" id="3_fdgrx"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_032qo"]
+radius = 0.53972316
+height = 13.26142
+
+[node name="Bulllet" type="Area2D" unique_id=234554583]
+scale = Vector2(0.505, 0.515)
+script = ExtResource("1_d7yj7")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1499642293]
+position = Vector2(1, 0)
+rotation = 1.5707964
+scale = Vector2(7.4112043, -3.317895)
+shape = SubResource("CapsuleShape2D_032qo")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1632927802]
+position = Vector2(-1.3120939e-07, 0)
+rotation = 1.5707964
+scale = Vector2(0.09964865, 0.16468011)
+texture = ExtResource("2_ggrph")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=492054547]
+scale = Vector2(0.99999994, 0.99999994)
+stream = ExtResource("3_fdgrx")
+volume_db = 24.0
+
+[node name="RayCast2D" type="RayCast2D" parent="." unique_id=50733196]
+target_position = Vector2(20, 0)
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

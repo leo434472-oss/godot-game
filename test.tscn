@@ -1,8 +1,0 @@
-[gd_scene format=3 uid="uid://b6vf1aji6dy38"]
-
-[ext_resource type="Script" uid="uid://rkjkr4jx3nbw" path="res://gun.gd" id="2_8uh7m"]
-
-[node name="Player" type="Node2D" unique_id=486150449]
-
-[node name="Gun" type="CharacterBody2D" parent="." unique_id=481142593]
-script = ExtResource("2_8uh7m")

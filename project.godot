@@ -13,7 +13,6 @@ config_version=5
 config/name="Bounce that Boi"
 run/main_scene="uid://dheyb4nxt5roj"
 config/features=PackedStringArray("4.7", "Forward Plus")
-config/icon="res://icon.svg"
 
 [autoload]
 

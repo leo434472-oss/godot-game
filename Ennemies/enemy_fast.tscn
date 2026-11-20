@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://byqgb63ea2wwn"]
+
+[ext_resource type="Script" uid="uid://cjjvx4cqmhqa2" path="res://Ennemies/enemy_fast.gd" id="1_hwwyw"]
+[ext_resource type="Texture2D" uid="uid://dhx7veixmk1at" path="res://Sprites/Rond_rouge.png" id="2_v4xms"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_onrkg"]
+radius = 40.04997
+
+[node name="enemy_fast" type="CharacterBody2D" unique_id=1136318364]
+collision_mask = 2
+script = ExtResource("1_hwwyw")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1891681812]
+scale = Vector2(0.14884697, 0.14893617)
+texture = ExtResource("2_v4xms")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=247657339]
+shape = SubResource("CircleShape2D_onrkg")
