@@ -3,7 +3,7 @@ var direction: Vector2 = Vector2.RIGHT
 var hasbounced : bool = false
 var bounces : int = 0
 @onready var ray: RayCast2D = $RayCast2D
-@export var bullet_speed: float = 800
+@export var bullet_speed: float = 1500
 @export var damage : int 
 
 func _ready() -> void:

@@ -9,7 +9,6 @@ var total_kills : int = 0
 @onready var countdown_time: Timer = $HUD/UI/Timer2
 const enemy_normal_scene: PackedScene = preload("res://Ennemies/enemy_normal.tscn")
 const enemy_fast_scene: PackedScene = preload("res://Ennemies/enemy_fast.tscn")
-const enemy_more_HP_scene: PackedScene = preload("res://Ennemies/enemy_more_HP.tscn")
 const buff_enemy_scene: PackedScene = preload("res://Ennemies/enemy_buff.tscn")
 @onready var damage_label: Label = $HUD/UI/Stats/DamageSt
 @onready var health_label: Label = $HUD/UI/Stats/HealthSt
@@ -114,10 +113,6 @@ func _on_timer_timeout() -> void:
 	var enemy_fast = enemy_fast_scene.instantiate()
 	enemy_fast.position = Vector2(randf_range(1700, 1800), randf_range(0, 1080))
 	add_child(enemy_fast)
-	
-	var enemy_more_HP = enemy_more_HP_scene.instantiate()
-	enemy_more_HP.position = Vector2(randf_range(1700, 1800), randf_range(0, 1080))
-	add_child(enemy_more_HP)
 	
 	var buff_enemy = buff_enemy_scene.instantiate()
 	buff_enemy.position = Vector2(randf_range(1700, 1800), randf_range(0, 1080))

@@ -10,6 +10,7 @@ var speed: float
 var max_health: int
 var player_health: int 
 var is_reloading: bool = false 
+@onready var camera: Camera2D = $Camera2D
 func _ready() -> void:
 	speed = Stats.speed
 	max_health = Stats.max_health
@@ -29,6 +30,7 @@ func _process(delta):
 func take_damage(amount):
 	if is_dead:
 		return
+	camera.apply_shake(10.0)
 	modulate = Color.RED
 	await get_tree().create_timer(0.1).timeout
 	modulate = Color.WHITE
@@ -55,6 +57,8 @@ func shoot() -> void:
 		bullet_left -= 1 
 		update_ammo_display()
 		showMuzzleFlash()
+		camera.apply_shake(3.0)
+		
 		$Muzzle/ShootSound.play()
 		var bullet = bullet_scene.instantiate()
 		get_tree().current_scene.add_child(bullet)
