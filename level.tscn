@@ -12,7 +12,7 @@
 size = Vector2(698.5, 348)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_n6hdu"]
-size = Vector2(631.5, 304)
+size = Vector2(704, 382.00012)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ntjt8"]
 size = Vector2(744.62506, 432)
@@ -31,6 +31,15 @@ size = Vector2(387.156, 145.40375)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kp4u4"]
 size = Vector2(683.9054, 333.64227)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_i2t4f"]
+size = Vector2(337.61475, 466.05505)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8cye3"]
+size = Vector2(550.56165, 278.8991)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2orkt"]
+size = Vector2(624.3513, 302.4496)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_krcgb"]
 size = Vector2(3573, 114)
@@ -176,7 +185,7 @@ position = Vector2(-624.25006, 1106)
 shape = SubResource("RectangleShape2D_ajodo")
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="Buildings1" unique_id=1696995108]
-position = Vector2(-624.25006, 1106)
+position = Vector2(-631.00006, 1107)
 shape = SubResource("RectangleShape2D_n6hdu")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Buildings1" unique_id=963444654]
@@ -244,12 +253,20 @@ scale = Vector2(1.316, 1.2648903)
 texture = ExtResource("5_f2txt")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Buldings3" unique_id=1675118470]
-position = Vector2(240.36694, -455.04584)
+position = Vector2(240.36693, -455.04584)
 shape = SubResource("RectangleShape2D_h3wsx")
+
+[node name="CollisionShape2D7" type="CollisionShape2D" parent="Buldings3" unique_id=1897206177]
+position = Vector2(240.36693, -455.04584)
+shape = SubResource("RectangleShape2D_i2t4f")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Buldings3" unique_id=1041541414]
 position = Vector2(902.7008, -587.15594)
 shape = SubResource("RectangleShape2D_r3u8s")
+
+[node name="CollisionShape2D6" type="CollisionShape2D" parent="Buldings3" unique_id=607167269]
+position = Vector2(902.7008, -587.15594)
+shape = SubResource("RectangleShape2D_8cye3")
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="Buldings3" unique_id=1352722223]
 position = Vector2(255.96333, -116.738525)
@@ -258,6 +275,10 @@ shape = SubResource("RectangleShape2D_05w1u")
 [node name="CollisionShape2D4" type="CollisionShape2D" parent="Buldings3" unique_id=1237378707]
 position = Vector2(886.9069, -221.867)
 shape = SubResource("RectangleShape2D_kp4u4")
+
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="Buldings3" unique_id=1874842230]
+position = Vector2(893.3289, -217.27985)
+shape = SubResource("RectangleShape2D_2orkt")
 
 [node name="WorldBorders" type="StaticBody2D" parent="." unique_id=105992697]
 

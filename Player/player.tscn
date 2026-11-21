@@ -37,11 +37,11 @@ scale = Vector2(0.27265626, 0.2539063)
 texture = ExtResource("4_od3ui")
 
 [node name="Muzzle" type="Marker2D" parent="." unique_id=930635594]
-position = Vector2(60, -26)
+position = Vector2(0.71, -26)
 
 [node name="MuzzleFlash" type="Sprite2D" parent="Muzzle" unique_id=1794206159]
 visible = false
-position = Vector2(64, -1.9999999)
+position = Vector2(126.4, 0)
 scale = Vector2(1.2187501, 1)
 texture = ExtResource("5_fhl08")
 

@@ -1,6 +1,6 @@
 extends Node
 
-var speed: float = 400.0
+var speed: float = 200.0
 var damage: int = 2000
 var max_health: int = 200
 var bounce_count : int = 3
