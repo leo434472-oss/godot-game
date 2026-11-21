@@ -3,7 +3,7 @@ extends Node2D
 const GUN_PLAYER_SCENE: PackedScene = preload("res://Player/player.tscn")
 var kill_count: int = 0
 var total_kills : int = 0
-@onready var coins: Label = $HUD/UI/Coins
+@onready var coins: Label = $HUD/UI/Stats/Coins
 @onready var kill_label: Label = $HUD/UI/KillCount
 @onready var countdown: Label = $HUD/UI/StartCountdown
 @onready var countdown_time: Timer = $HUD/UI/Timer2
@@ -24,13 +24,17 @@ var SpeedUpPrice = 1
 @onready var currentHealth : Label = $HUD/UI/Stats/CurrentHealth
 
 @onready var DeathSound : AudioStreamPlayer2D = $EnemyDeathSound
+@onready var HealthBar : ProgressBar = $HUD/UI/HealthBar
 
 func update_current_health():
 	currentHealth.text = 'Health: ' + str(Stats.player_health)
+	HealthBar.max_value = Stats.max_health
+	HealthBar.value = Stats.player_health
+	
 func update_upgrade_price():
-	health_price.text = "Upgrade Health (%d kills)" % HealthUpPrice
-	damage_price.text = "Upgrade Damage (%d kills)" % DamageUpPrice
-	speed_price.text = "Upgrade Speed (%d kills)" % SpeedUpPrice
+	health_price.text = "Upgrade Health (%d coins(s))" % HealthUpPrice
+	damage_price.text = "Upgrade Damage (%d coins(s))" % DamageUpPrice
+	speed_price.text = "Upgrade Speed (%d coin(s))" % SpeedUpPrice
 
 func update_ui() -> void:
 	damage_label.text = "Damage: " + str(Stats.damage)

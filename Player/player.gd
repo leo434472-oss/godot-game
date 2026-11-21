@@ -15,7 +15,6 @@ func _ready() -> void:
 	speed = Stats.speed
 	max_health = Stats.max_health
 	player_health = max_health
-
 	update_ammo_display()
 
 func _physics_process(delta):
@@ -26,7 +25,7 @@ func _physics_process(delta):
 
 func _process(delta):
 	look_at(get_global_mouse_position())
-
+	
 func take_damage(amount):
 	if is_dead:
 		return
@@ -34,8 +33,10 @@ func take_damage(amount):
 	modulate = Color.RED
 	await get_tree().create_timer(0.1).timeout
 	modulate = Color.WHITE
+
 	
 	player_health -= amount
+	Events.tookDamage.emit(amount)
 	if player_health <= 0:
 		_lose()
 

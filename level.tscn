@@ -5,8 +5,16 @@
 [ext_resource type="PackedScene" uid="uid://bfjof2mhugqhp" path="res://Player/player.tscn" id="2_1ainy"]
 [ext_resource type="FontFile" uid="uid://bysc47c2iiipm" path="res://Fonts/Game Paused DEMO.otf" id="2_oi3di"]
 [ext_resource type="Script" uid="uid://c15kdf70uw8e6" path="res://button.gd" id="3_0b4ue"]
+[ext_resource type="Texture2D" uid="uid://d18dd24358aic" path="res://HealthUpIcon.png" id="4_km5ld"]
 [ext_resource type="Texture2D" uid="uid://c0kgw73bet41u" path="res://Sprites/Background.png" id="5_f2txt"]
 [ext_resource type="AudioStream" uid="uid://b042pgsld2iys" path="res://Sounds/Grenade3.wav" id="7_n6hdu"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8cye3"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2orkt"]
+bg_color = Color(0.8745098, 0.09803922, 0.21568628, 1)
+
+[sub_resource type="Theme" id="Theme_km5ld"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ajodo"]
 size = Vector2(698.5, 348)
@@ -69,25 +77,41 @@ anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
+[node name="HealthBar" type="ProgressBar" parent="HUD/UI" unique_id=867079516]
+layout_mode = 0
+offset_left = 586.0
+offset_top = 45.0
+offset_right = 1503.0
+offset_bottom = 131.0
+theme_override_fonts/font = ExtResource("2_0b4ue")
+theme_override_font_sizes/font_size = 100
+theme_override_styles/background = SubResource("StyleBoxFlat_8cye3")
+theme_override_styles/fill = SubResource("StyleBoxFlat_2orkt")
+
 [node name="UpgradeButtons" type="VBoxContainer" parent="HUD/UI" unique_id=1278066420]
 layout_mode = 0
 offset_left = 34.0
 offset_top = 823.0
 offset_right = 334.0
 offset_bottom = 992.0
+theme = SubResource("Theme_km5ld")
 
 [node name="DamageUp" type="Button" parent="HUD/UI/UpgradeButtons" unique_id=1451287550]
 layout_mode = 2
+focus_mode = 0
 theme_override_fonts/font = ExtResource("2_0b4ue")
 theme_override_font_sizes/font_size = 50
 
 [node name="HealthUp" type="Button" parent="HUD/UI/UpgradeButtons" unique_id=728286862]
 layout_mode = 2
+focus_mode = 0
 theme_override_fonts/font = ExtResource("2_0b4ue")
 theme_override_font_sizes/font_size = 50
+icon = ExtResource("4_km5ld")
 
 [node name="SpeedUp" type="Button" parent="HUD/UI/UpgradeButtons" unique_id=636027224]
 layout_mode = 2
+focus_mode = 0
 theme_override_fonts/font = ExtResource("2_0b4ue")
 theme_override_font_sizes/font_size = 50
 
@@ -118,6 +142,11 @@ layout_mode = 2
 theme_override_fonts/font = ExtResource("2_0b4ue")
 theme_override_font_sizes/font_size = 50
 
+[node name="Coins" type="Label" parent="HUD/UI/Stats" unique_id=1549621039]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_0b4ue")
+theme_override_font_sizes/font_size = 50
+
 [node name="StartCountdown" type="Label" parent="HUD/UI" unique_id=2056981009]
 layout_mode = 1
 anchors_preset = 8
@@ -144,6 +173,7 @@ offset_left = 1711.0
 offset_top = 55.0
 offset_right = 1872.0
 offset_bottom = 114.0
+focus_mode = 0
 theme_override_colors/font_color = Color(0.9411085, 0.497531, 0.51050764, 1)
 theme_override_fonts/font = ExtResource("2_oi3di")
 theme_override_font_sizes/font_size = 50
@@ -156,15 +186,6 @@ offset_left = 39.0
 offset_top = 43.0
 offset_right = 299.0
 offset_bottom = 194.0
-theme_override_fonts/font = ExtResource("2_0b4ue")
-theme_override_font_sizes/font_size = 50
-
-[node name="Coins" type="Label" parent="HUD/UI" unique_id=1549621039]
-layout_mode = 0
-offset_left = 785.0
-offset_top = 43.0
-offset_right = 1193.0
-offset_bottom = 256.0
 theme_override_fonts/font = ExtResource("2_0b4ue")
 theme_override_font_sizes/font_size = 50
 
@@ -300,6 +321,9 @@ shape = SubResource("RectangleShape2D_1ainy")
 
 [node name="Player" parent="." unique_id=1763412074 instance=ExtResource("2_1ainy")]
 
+[connection signal="pressed" from="HUD/UI/UpgradeButtons/DamageUp" to="." method="_on_damage_up_pressed"]
+[connection signal="pressed" from="HUD/UI/UpgradeButtons/HealthUp" to="." method="_on_health_up_pressed"]
+[connection signal="pressed" from="HUD/UI/UpgradeButtons/SpeedUp" to="." method="_on_speed_up_pressed"]
 [connection signal="timeout" from="HUD/UI/Timer2" to="." method="_on_timer_2_timeout"]
 [connection signal="pressed" from="HUD/UI/quit_button" to="." method="_on_button_pressed"]
 [connection signal="timeout" from="EnemySpawnTimer" to="." method="_on_timer_timeout"]
