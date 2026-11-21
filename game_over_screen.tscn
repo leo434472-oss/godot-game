@@ -2,6 +2,7 @@
 
 [ext_resource type="FontFile" uid="uid://cu01fv3voudwi" path="res://Fonts/PixelPurl.ttf" id="1_gt22q"]
 [ext_resource type="Script" uid="uid://b7asu8gxhfegc" path="res://game_over_screen.gd" id="1_w3hxg"]
+[ext_resource type="AudioStream" uid="uid://cbvhlt1fv0smn" path="res://Sounds/PlayerDeathSound.wav" id="3_l4tlu"]
 
 [node name="GameOverScreen" type="Control" unique_id=1948523553]
 layout_mode = 3
@@ -69,6 +70,9 @@ offset_transform_enabled = true
 theme_override_fonts/font = ExtResource("1_gt22q")
 theme_override_font_sizes/font_size = 150
 text = "I QUIT."
+
+[node name="DeathSound" type="AudioStreamPlayer2D" parent="." unique_id=777201184]
+stream = ExtResource("3_l4tlu")
 
 [connection signal="pressed" from="Label/RetryButton" to="." method="_on_retry_button_pressed"]
 [connection signal="pressed" from="Label/QuitButton" to="." method="_on_quit_button_pressed"]

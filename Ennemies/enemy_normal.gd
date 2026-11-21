@@ -14,7 +14,7 @@ func take_damage(amount: int) -> void:
 		die()
 		
 func die():
-	Events.died.emit()
+	Events.died.emit(global_position)
 	queue_free()
 	
 	
@@ -26,13 +26,7 @@ func _physics_process(delta: float) -> void:
 	velocity = direction * enemy_normal_speed
 	move_and_slide()
 
-
-
-
-  
-
-func _on_hitbox_area_entered(area: Area2D) -> void:
-	if area.is_in_group('Player'):
-		print('in group player')
-		if area.has_method('take_damage'):
-			area.take_damage(enemy_normal_damage)
+func _on_hitbox_body_entered(body: Node2D) -> void:
+	if body.is_in_group('Player'):
+		if body.has_method('take_damage'):
+			body.take_damage(enemy_normal_damage)

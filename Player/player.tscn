@@ -4,12 +4,23 @@
 [ext_resource type="PackedScene" uid="uid://bxidj17klfg1n" path="res://Player/bullet.tscn" id="2_fhl08"]
 [ext_resource type="FontFile" uid="uid://cu01fv3voudwi" path="res://Fonts/PixelPurl.ttf" id="3_vtle1"]
 [ext_resource type="Texture2D" uid="uid://chiqb7lk3bg3d" path="res://Sprites/PlayerSprite.png" id="4_od3ui"]
-[ext_resource type="AudioStream" uid="uid://cbvhlt1fv0smn" path="res://Sounds/PlayerDeathSound.wav" id="5_00tjw"]
+[ext_resource type="Texture2D" uid="uid://drkoaa05lg6j4" path="res://Sprites/MuzzleFlash.png" id="5_fhl08"]
+[ext_resource type="AudioStream" uid="uid://3kxuto1xs6s8" path="res://Sounds/eaglaxle-gun-shot-1-530788.mp3" id="6_vtle1"]
+[ext_resource type="AudioStream" uid="uid://dyx1kmdb4jbxq" path="res://Sounds/dragon-studio-gun-reload-2-511308.mp3" id="7_od3ui"]
 
 [node name="Player" type="CharacterBody2D" unique_id=1763412074 groups=["Player"]]
+top_level = true
 scale = Vector2(0.5, 0.5)
 script = ExtResource("1_k53q1")
 bullet_scene = ExtResource("2_fhl08")
+
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="." unique_id=942305615 groups=["Player"]]
+polygon = PackedVector2Array(-70, -44, 104, -44, 104, 4, 32, 7, 31, 28, -13, 29, -27, 81, -75, 73, -78, 58, -57, 10, -76, -2)
+
+[node name="HurtBox" type="Area2D" parent="." unique_id=1278070897 groups=["Player"]]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="HurtBox" unique_id=1202025982]
+polygon = PackedVector2Array(-70, -44, 104, -44, 104, 4, 32, 7, 31, 28, -13, 29, -27, 81, -75, 73, -78, 58, -57, 10, -76, -2)
 
 [node name="AmmoCount" type="Label" parent="." unique_id=104708011]
 offset_left = 55.072464
@@ -24,17 +35,26 @@ position = Vector2(11.999998, 19)
 scale = Vector2(0.27265626, 0.2539063)
 texture = ExtResource("4_od3ui")
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." unique_id=1202025982]
-polygon = PackedVector2Array(-70, -44, 104, -44, 104, 4, 32, 7, 31, 28, -13, 29, -27, 81, -75, 73, -78, 58, -57, 10, -76, -2)
-
 [node name="Muzzle" type="Marker2D" parent="." unique_id=930635594]
-position = Vector2(42, -26)
+position = Vector2(60, -26)
 
-[node name="DeathSound" type="AudioStreamPlayer2D" parent="." unique_id=331303691]
-stream = ExtResource("5_00tjw")
+[node name="MuzzleFlash" type="Sprite2D" parent="Muzzle" unique_id=1794206159]
+visible = false
+position = Vector2(64, -1.9999999)
+scale = Vector2(1.2187501, 1)
+texture = ExtResource("5_fhl08")
+
+[node name="ShootSound" type="AudioStreamPlayer2D" parent="Muzzle" unique_id=1511321272]
+stream = ExtResource("6_vtle1")
+
+[node name="ReloadSound" type="AudioStreamPlayer2D" parent="Muzzle" unique_id=343917044]
+stream = ExtResource("7_od3ui")
+volume_db = -15.656
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=957987243]
 zoom = Vector2(1.5, 1.5)
 
 [node name="Node2D" type="Node2D" parent="." unique_id=364565614 groups=["Player"]]
 scale = Vector2(0.345, 0.345)
+
+[connection signal="body_entered" from="HurtBox" to="." method="_on_hurt_box_body_entered"]

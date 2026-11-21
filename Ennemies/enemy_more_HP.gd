@@ -3,8 +3,10 @@ var killcount : int = 0
 var enemy_more_HP_speed = 100
 var enemy_more_HP_health :int= 300
 var enemy_normal_damage :int = 15
+
 func _ready() -> void:
 	pass
+	
 func take_damage(amount: int) -> void:
 	enemy_more_HP_health -= amount
 	modulate = Color.RED
@@ -14,9 +16,8 @@ func take_damage(amount: int) -> void:
 		die()
 		
 func die():
-	Events.died.emit()
+	Events.died.emit(global_position)
 	queue_free()
-	
 	
 func _physics_process(delta: float) -> void:
 	var player = get_tree().get_first_node_in_group("Player")
@@ -26,10 +27,7 @@ func _physics_process(delta: float) -> void:
 	velocity = direction * enemy_more_HP_speed
 	move_and_slide()
 
-
-
-func _on_area_2d_body_entered(body: Node2D) -> void:
-	if body.is_in_group("Player"):
-		if body.has_method("take_damage"):
-			print('attacking')
+func _on_hitbox_body_entered(body: Node2D) -> void:
+	if body.is_in_group('Player'):
+		if body.has_method('take_damage'):
 			body.take_damage(enemy_normal_damage)

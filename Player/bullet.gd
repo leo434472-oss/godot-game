@@ -26,8 +26,8 @@ func _physics_process(delta: float) -> void:
 		rotation = direction.angle()
 		ray.force_raycast_update()
 		hasbounced = true
-		bounces += 1
 		$AudioStreamPlayer2D.play()
+		bounces += 1
 		
 	position += direction * bullet_speed * delta
 

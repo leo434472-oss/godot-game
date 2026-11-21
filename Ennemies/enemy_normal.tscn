@@ -1,19 +1,24 @@
 [gd_scene format=3 uid="uid://y3kheurg0wy1"]
 
-[ext_resource type="Script" uid="uid://bajgtdy6mf5g" path="res://Ennemies/enemy_normal.gd" id="1_era6v"]
-[ext_resource type="Texture2D" uid="uid://c86bcrfaq8yi3" path="res://Sprites/zombie.png" id="2_era6v"]
+[ext_resource type="Script" uid="uid://bajgtdy6mf5g" path="res://Ennemies/enemy_normal.gd" id="1_fli7j"]
+[ext_resource type="AudioStream" uid="uid://b042pgsld2iys" path="res://Sounds/Grenade3.wav" id="2_4kumi"]
+[ext_resource type="Texture2D" uid="uid://c86bcrfaq8yi3" path="res://Sprites/zombie.png" id="2_h8etd"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_onrkg"]
 radius = 36.013885
 
 [node name="enemy_normal" type="CharacterBody2D" unique_id=1136318364]
 collision_mask = 2
-script = ExtResource("1_era6v")
+script = ExtResource("1_fli7j")
+
+[node name="EnemyDeathSound" type="AudioStreamPlayer2D" parent="." unique_id=754366332]
+stream = ExtResource("2_4kumi")
+volume_db = 24.0
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1891681812]
 position = Vector2(4.4107437e-06, 1.9999999)
 scale = Vector2(0.26171872, 0.265625)
-texture = ExtResource("2_era6v")
+texture = ExtResource("2_h8etd")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=247657339]
 position = Vector2(0, 2)
@@ -26,3 +31,4 @@ position = Vector2(0, 2)
 shape = SubResource("CircleShape2D_onrkg")
 
 [connection signal="area_entered" from="Hitbox" to="." method="_on_hitbox_area_entered"]
+[connection signal="body_entered" from="Hitbox" to="." method="_on_hitbox_body_entered"]

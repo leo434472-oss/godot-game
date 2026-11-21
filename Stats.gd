@@ -2,9 +2,9 @@ extends Node
 
 var speed: float = 400.0
 var damage: int = 2000
-var max_health: int = 100
+var max_health: int = 200
 var bounce_count : int = 3
-
+var player_health : int
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass # Replace with function body.

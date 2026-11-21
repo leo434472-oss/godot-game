@@ -5,12 +5,12 @@ var kill_count: int = 0
 var total_kills : int = 0
 @onready var coins: Label = $HUD/UI/Coins
 @onready var kill_label: Label = $HUD/UI/KillCount
-@onready var countdown: Label = $HUD/UI/Countdown
+@onready var countdown: Label = $HUD/UI/StartCountdown
 @onready var countdown_time: Timer = $HUD/UI/Timer2
 const enemy_normal_scene: PackedScene = preload("res://Ennemies/enemy_normal.tscn")
 const enemy_fast_scene: PackedScene = preload("res://Ennemies/enemy_fast.tscn")
 const enemy_more_HP_scene: PackedScene = preload("res://Ennemies/enemy_more_HP.tscn")
-const buff_enemy_scene: PackedScene = preload("res://Ennemies/buff_enemy.tscn")
+const buff_enemy_scene: PackedScene = preload("res://Ennemies/enemy_buff.tscn")
 @onready var damage_label: Label = $HUD/UI/Stats/DamageSt
 @onready var health_label: Label = $HUD/UI/Stats/HealthSt
 @onready var speed_label: Label = $HUD/UI/Stats/SpeedSt
@@ -22,6 +22,12 @@ var SpeedUpPrice = 1
 @onready var health_price: Button = $HUD/UI/UpgradeButtons/HealthUp
 @onready var speed_price: Button = $HUD/UI/UpgradeButtons/SpeedUp
 
+@onready var currentHealth : Label = $HUD/UI/Stats/CurrentHealth
+
+@onready var DeathSound : AudioStreamPlayer2D = $EnemyDeathSound
+
+func update_current_health():
+	currentHealth.text = 'Health: ' + str(Stats.player_health)
 func update_upgrade_price():
 	health_price.text = "Upgrade Health (%d kills)" % HealthUpPrice
 	damage_price.text = "Upgrade Damage (%d kills)" % DamageUpPrice
@@ -75,6 +81,7 @@ func upgrade_speed():
 	#player.global_position = spawn_position
 
 func _ready() -> void:
+	update_current_health()
 	update_ui()
 	update_upgrade_price()
 
@@ -90,6 +97,7 @@ func _countdown() -> String:
 	return str(seconds)
 
 func _process(_delta: float) -> void:
+	update_current_health()
 	if countdown and countdown_time:
 		countdown.text = _countdown()
 
@@ -115,11 +123,13 @@ func _on_timer_timeout() -> void:
 	buff_enemy.position = Vector2(randf_range(1700, 1800), randf_range(0, 1080))
 	add_child(buff_enemy)
 
-func _killcount():
+func _killcount(death_pos : Vector2):
 	kill_count += 1
 	total_kills += 1
 	update_ui()
 	kill_label.text = "Kills: " + str(kill_count)
+	DeathSound.global_position = death_pos
+	DeathSound.play()
 	
 func _on_button_pressed() -> void:
 	get_tree().quit()

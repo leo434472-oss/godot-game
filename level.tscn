@@ -6,12 +6,19 @@
 [ext_resource type="FontFile" uid="uid://bysc47c2iiipm" path="res://Fonts/Game Paused DEMO.otf" id="2_oi3di"]
 [ext_resource type="Script" uid="uid://c15kdf70uw8e6" path="res://button.gd" id="3_0b4ue"]
 [ext_resource type="Texture2D" uid="uid://c0kgw73bet41u" path="res://Sprites/Background.png" id="5_f2txt"]
+[ext_resource type="AudioStream" uid="uid://b042pgsld2iys" path="res://Sounds/Grenade3.wav" id="7_n6hdu"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ajodo"]
 size = Vector2(698.5, 348)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_n6hdu"]
+size = Vector2(631.5, 304)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ntjt8"]
 size = Vector2(744.62506, 432)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_km5ld"]
+size = Vector2(684.625, 386)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_h3wsx"]
 size = Vector2(437.44147, 547.7501)
@@ -39,6 +46,11 @@ size = Vector2(88, 2462)
 
 [node name="level" type="Node2D" unique_id=1452691641]
 script = ExtResource("1_u52ul")
+
+[node name="EnemyDeathSound" type="AudioStreamPlayer2D" parent="." unique_id=1856540282]
+position = Vector2(500, 500)
+stream = ExtResource("7_n6hdu")
+volume_db = 0.364
 
 [node name="HUD" type="CanvasLayer" parent="." unique_id=402460447]
 
@@ -92,21 +104,26 @@ layout_mode = 2
 theme_override_fonts/font = ExtResource("2_0b4ue")
 theme_override_font_sizes/font_size = 40
 
-[node name="Countdown" type="Label" parent="HUD/UI" unique_id=2056981009]
+[node name="CurrentHealth" type="Label" parent="HUD/UI/Stats" unique_id=46238978]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_0b4ue")
+theme_override_font_sizes/font_size = 50
+
+[node name="StartCountdown" type="Label" parent="HUD/UI" unique_id=2056981009]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = 39.0
-offset_top = 220.0
-offset_right = 242.0
-offset_bottom = 455.0
+offset_left = 896.0
+offset_top = 469.0
+offset_right = 1431.0
+offset_bottom = 704.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_fonts/font = ExtResource("2_0b4ue")
-theme_override_font_sizes/font_size = 120
+theme_override_font_sizes/font_size = 200
 
 [node name="Timer2" type="Timer" parent="HUD/UI" unique_id=1393523632]
 wait_time = 1.291
@@ -158,9 +175,17 @@ texture = ExtResource("5_f2txt")
 position = Vector2(-624.25006, 1106)
 shape = SubResource("RectangleShape2D_ajodo")
 
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Buildings1" unique_id=1696995108]
+position = Vector2(-624.25006, 1106)
+shape = SubResource("RectangleShape2D_n6hdu")
+
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Buildings1" unique_id=963444654]
 position = Vector2(-655.68756, 1592)
 shape = SubResource("RectangleShape2D_ntjt8")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="Buildings1" unique_id=1116809746]
+position = Vector2(-655.68756, 1592)
+shape = SubResource("RectangleShape2D_km5ld")
 
 [node name="Buldings2" type="StaticBody2D" parent="." unique_id=2065741569]
 position = Vector2(50, 450)

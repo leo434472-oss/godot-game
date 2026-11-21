@@ -2,9 +2,11 @@ extends CharacterBody2D
 var killcount : int = 0
 var enemy_fast_speed = 200
 var enemy_fast_health :int= 100
-var enemy_normal_damage :int = 15
+var enemy_normal_damage :int = 10
+
 func _ready() -> void:
 	pass
+
 func take_damage(amount: int) -> void:
 	enemy_fast_health -= amount
 	modulate = Color.RED
@@ -14,7 +16,8 @@ func take_damage(amount: int) -> void:
 		die()
 		
 func die():
-	Events.died.emit()
+	
+	Events.died.emit(global_position)
 	queue_free()
 	
 	
@@ -26,9 +29,7 @@ func _physics_process(delta: float) -> void:
 	velocity = direction * enemy_fast_speed
 	move_and_slide()
 
-
-func _on_area_2d_body_entered(body: Node2D) -> void:
+func _on_hitbox_body_shape_entered(body_rid: RID, body: Node2D, body_shape_index: int, local_shape_index: int) -> void:
 	if body.is_in_group("Player"):
 		if body.has_method("take_damage"):
-			print('attacking')
 			body.take_damage(enemy_normal_damage)
