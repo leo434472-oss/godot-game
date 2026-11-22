@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://cxsticbb6u2yt"]
 
-[ext_resource type="Script" uid="uid://cjjvx4cqmhqa2" path="res://Ennemies/enemy_fast.gd" id="1_3p1i0"]
+[ext_resource type="Script" uid="uid://b0vkpgsqho2v0" path="res://Ennemies/enemy_buff.gd" id="1_lrwj3"]
 [ext_resource type="Texture2D" uid="uid://dyvpxxwe5ewww" path="res://Sprites/Rond_noir-removebg-preview.png" id="2_lrwj3"]
 [ext_resource type="AudioStream" uid="uid://b042pgsld2iys" path="res://Sounds/Grenade3.wav" id="3_lrwj3"]
 
@@ -8,11 +8,11 @@
 radius = 16.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_032qo"]
-radius = 21.0
+radius = 19.0
 
 [node name="enemy_buff" type="CharacterBody2D" unique_id=1136318364]
 collision_mask = 2
-script = ExtResource("1_3p1i0")
+script = ExtResource("1_lrwj3")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1891681812]
 position = Vector2(-1, -1)
@@ -23,13 +23,14 @@ texture = ExtResource("2_lrwj3")
 position = Vector2(-2, -1)
 shape = SubResource("CircleShape2D_onrkg")
 
-[node name="Hitbox" type="Area2D" parent="." unique_id=1067505077]
+[node name="HitboxBuff" type="Area2D" parent="." unique_id=1067505077]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" unique_id=1379818176]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxBuff" unique_id=1379818176]
+position = Vector2(-2, 0)
 shape = SubResource("CircleShape2D_032qo")
 
 [node name="EnemyDeathSound" type="AudioStreamPlayer2D" parent="." unique_id=68993126]
 stream = ExtResource("3_lrwj3")
 volume_db = 24.0
 
-[connection signal="body_shape_entered" from="Hitbox" to="." method="_on_hitbox_body_shape_entered"]
+[connection signal="body_entered" from="HitboxBuff" to="." method="_on_hitbox_buff_body_entered"]

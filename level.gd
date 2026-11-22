@@ -90,7 +90,7 @@ func _ready() -> void:
 
 	kill_label.text = "Kills: 0"
 	Events.died.connect(_killcount)
-	$Player.global_position = Vector2(500,500)
+	$Player.global_position = Vector2(575,75)
 	#spawn_player(Vector2(500, 500))
 	if countdown_time:
 		countdown_time.start()

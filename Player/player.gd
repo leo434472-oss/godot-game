@@ -11,25 +11,26 @@ var max_health: int
 var player_health: int 
 var is_reloading: bool = false 
 @onready var camera: Camera2D = $Camera2D
+var regen_rate : float = 1.5
 func _ready() -> void:
 	speed = Stats.speed
 	max_health = Stats.max_health
 	player_health = max_health
 	update_ammo_display()
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	Stats.player_health = player_health
 	var input_direction = Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
 	velocity = input_direction * speed
 	move_and_slide()
 
-func _process(delta):
+func _process(_delta):
 	look_at(get_global_mouse_position())
-	
+
 func take_damage(amount):
 	if is_dead:
 		return
-	camera.apply_shake(10.0)
+	camera.apply_shake(3.0)
 	modulate = Color.RED
 	await get_tree().create_timer(0.1).timeout
 	modulate = Color.WHITE
@@ -58,7 +59,7 @@ func shoot() -> void:
 		bullet_left -= 1 
 		update_ammo_display()
 		showMuzzleFlash()
-		camera.apply_shake(3.0)
+		camera.apply_shake(1.0)
 		
 		$Muzzle/ShootSound.play()
 		var bullet = bullet_scene.instantiate()
@@ -84,3 +85,8 @@ func showMuzzleFlash():
 	muzzleFlash.show()
 	await get_tree().create_timer(.1).timeout
 	muzzleFlash.hide()
+
+
+func _on_regen_timer_timeout() -> void:
+	if player_health < max_health:
+		player_health = min(player_health + 5.0, max_health)

@@ -47,14 +47,14 @@ layout_mode = 2
 layout_mode = 2
 theme_override_colors/font_color = Color(0.45882353, 0, 0, 1)
 theme_override_fonts/font = ExtResource("2_7vrkn")
-theme_override_font_sizes/font_size = 200
+theme_override_font_sizes/font_size = 150
 text = "Bounce that Boi"
 
 [node name="StartButton" type="Button" parent="CenterContainer/VBoxContainer" unique_id=199107726]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.84712857, 0.9804687, 0.83077407, 1)
 theme_override_fonts/font = ExtResource("2_7vrkn")
-theme_override_font_sizes/font_size = 100
+theme_override_font_sizes/font_size = 75
 text = "Start"
 script = ExtResource("3_fu7sn")
 
@@ -63,46 +63,46 @@ layout_mode = 2
 theme_override_colors/font_color = Color(0.999988, 0.6035838, 0.5940889, 1)
 theme_override_colors/icon_normal_color = Color(1, 0.5647059, 1, 1)
 theme_override_fonts/font = ExtResource("2_7vrkn")
-theme_override_font_sizes/font_size = 75
+theme_override_font_sizes/font_size = 50
 text = "Quit"
 
 [node name="RichTextLabel" type="RichTextLabel" parent="." unique_id=1472904166]
 visibility_layer = 2
 layout_mode = 0
-offset_left = 261.0
-offset_top = 328.0
-offset_right = 1718.0
-offset_bottom = 539.0
+offset_left = 48.0
+offset_top = 160.0
+offset_right = 1505.0
+offset_bottom = 371.0
 mouse_filter = 2
 theme_override_colors/default_color = Color(0.68422776, 0.30422428, 0.25251213, 1)
 theme_override_fonts/normal_font = ExtResource("2_7vrkn")
-theme_override_font_sizes/normal_font_size = 200
+theme_override_font_sizes/normal_font_size = 150
 bbcode_enabled = true
 text = "[wave amp=50.0 freq=5.0 connected=1]Bounce that Boi[/wave]"
 
 [node name="RichTextLabel2" type="RichTextLabel" parent="." unique_id=300273877]
 layout_mode = 0
-offset_left = 893.0
-offset_top = 661.0
-offset_right = 1056.0
-offset_bottom = 747.0
+offset_left = 532.0
+offset_top = 420.0
+offset_right = 695.0
+offset_bottom = 506.0
 mouse_filter = 2
 theme_override_colors/default_color = Color(0.93333334, 0.14117648, 0.23137255, 1)
 theme_override_fonts/normal_font = ExtResource("2_7vrkn")
-theme_override_font_sizes/normal_font_size = 75
+theme_override_font_sizes/normal_font_size = 50
 bbcode_enabled = true
 text = "[wave amp=50.0 freq=5.0 connected=1]Quit[/wave]"
 
 [node name="RichTextLabel3" type="RichTextLabel" parent="." unique_id=2141750126]
 layout_mode = 0
-offset_left = 836.0
-offset_top = 547.0
-offset_right = 1121.0
-offset_bottom = 653.0
+offset_left = 483.0
+offset_top = 328.0
+offset_right = 768.0
+offset_bottom = 434.0
 mouse_filter = 2
 theme_override_colors/default_color = Color(0.40784314, 0.88235295, 0.34509805, 1)
 theme_override_fonts/normal_font = ExtResource("2_7vrkn")
-theme_override_font_sizes/normal_font_size = 100
+theme_override_font_sizes/normal_font_size = 75
 bbcode_enabled = true
 text = "[wave amp=50.0 freq=5.0 connected=1]Start[/wave]"
 

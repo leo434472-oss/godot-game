@@ -13,7 +13,7 @@ radius = 0.7860049
 height = 14.914622
 
 [node name="Bulllet" type="Area2D" unique_id=234554583]
-scale = Vector2(0.505, 0.515)
+scale = Vector2(0.245, 0.245)
 script = ExtResource("1_d7yj7")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1499642293]
@@ -39,7 +39,7 @@ texture = ExtResource("2_ggrph")
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=492054547]
 scale = Vector2(0.99999994, 0.99999994)
 stream = ExtResource("3_fdgrx")
-volume_db = -1.72
+volume_db = -10.107
 
 [node name="RayCast2D" type="RayCast2D" parent="." unique_id=50733196]
 position = Vector2(-17.821781, 0)

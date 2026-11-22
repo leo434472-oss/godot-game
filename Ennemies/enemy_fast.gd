@@ -1,6 +1,6 @@
 extends CharacterBody2D
 var killcount : int = 0
-var enemy_fast_speed = 200
+var enemy_fast_speed = 50
 var enemy_fast_health :int= 100
 var enemy_normal_damage :int = 10
 
@@ -30,7 +30,8 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 
 
-func _on_hitbox_body_entered(body: Node2D) -> void:
+func _on_hitbox_fast_body_entered(body: Node2D) -> void:
 	if body.is_in_group('Player'):
 		if body.has_method('take_damage'):
+			await get_tree().create_timer(.3).timeout
 			body.take_damage(enemy_normal_damage)

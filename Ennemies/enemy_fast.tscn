@@ -11,13 +11,9 @@ radius = 39.0
 radius = 42.0
 
 [node name="enemy_fast" type="CharacterBody2D" unique_id=1136318364]
+scale = Vector2(0.31, 0.31)
 collision_mask = 2
 script = ExtResource("1_hwwyw")
-
-[node name="EnemyDeathSound" type="AudioStreamPlayer2D" parent="." unique_id=823335705]
-position = Vector2(0, 1)
-stream = ExtResource("2_v4xms")
-volume_db = 24.0
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1891681812]
 position = Vector2(-2.49, 0)
@@ -27,10 +23,16 @@ texture = ExtResource("2_hwwyw")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=247657339]
 shape = SubResource("CircleShape2D_onrkg")
 
-[node name="Hitbox" type="Area2D" parent="." unique_id=1672510012]
+[node name="HitboxFast" type="Area2D" parent="." unique_id=1672510012]
 position = Vector2(0, 1)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" unique_id=30121100]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxFast" unique_id=30121100]
 shape = SubResource("CircleShape2D_032qo")
 
-[connection signal="body_entered" from="Hitbox" to="." method="_on_hitbox_body_entered"]
+[node name="EnemyDeathSound" type="AudioStreamPlayer2D" parent="." unique_id=823335705]
+position = Vector2(0, 0.99999994)
+scale = Vector2(0.9999998, 0.9999998)
+stream = ExtResource("2_v4xms")
+volume_db = 24.0
+
+[connection signal="body_entered" from="HitboxFast" to="." method="_on_hitbox_fast_body_entered"]

@@ -11,9 +11,12 @@
 
 [node name="Player" type="CharacterBody2D" unique_id=1763412074 groups=["Player"]]
 top_level = true
-scale = Vector2(0.5, 0.5)
+scale = Vector2(0.04, 0.04)
 script = ExtResource("1_k53q1")
 bullet_scene = ExtResource("2_fhl08")
+
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="." unique_id=526872653]
+polygon = PackedVector2Array(-63.636364, -36.363636, 100, -36.363636, 90.90909, 0, 32, 7, 27.272728, 27.272728, -13, 29, -27, 81, -63.636364, 72.72727, -78, 58, -57, 10, -63.636364, 0)
 
 [node name="AmmoCount" type="Label" parent="." unique_id=104708011]
 offset_left = 55.072464
@@ -23,13 +26,10 @@ offset_bottom = 126.57971
 theme_override_fonts/font = ExtResource("3_vtle1")
 theme_override_font_sizes/font_size = 100
 
-[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="." unique_id=942305615 groups=["Player"]]
-polygon = PackedVector2Array(-70, -44, 104, -44, 104, 4, 32, 7, 31, 28, -13, 29, -27, 81, -75, 73, -78, 58, -57, 10, -76, -2)
-
 [node name="HurtBox" type="Area2D" parent="." unique_id=1278070897 groups=["Player"]]
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="HurtBox" unique_id=1202025982]
-polygon = PackedVector2Array(-70, -44, 104, -44, 104, 4, 32, 7, 31, 28, -13, 29, -27, 81, -75, 73, -78, 58, -57, 10, -76, -2)
+polygon = PackedVector2Array(-63.636364, -36.363636, 100, -36.363636, 90.90909, 0, 32, 7, 27.272728, 27.272728, -13, 29, -27, 81, -63.636364, 72.72727, -78, 58, -57, 10, -63.636364, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=2040237533]
 position = Vector2(11.999998, 19)
@@ -47,17 +47,23 @@ texture = ExtResource("5_fhl08")
 
 [node name="ShootSound" type="AudioStreamPlayer2D" parent="Muzzle" unique_id=1511321272]
 stream = ExtResource("6_vtle1")
+volume_db = 3.914
 
 [node name="ReloadSound" type="AudioStreamPlayer2D" parent="Muzzle" unique_id=343917044]
 stream = ExtResource("7_od3ui")
 volume_db = -15.656
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=957987243]
-zoom = Vector2(1.5, 1.5)
+zoom = Vector2(5.12, 5.12)
 script = ExtResource("8_od3ui")
 
 [node name="Node2D" type="Node2D" parent="." unique_id=364565614 groups=["Player"]]
 top_level = true
 scale = Vector2(0.345, 0.345)
 
+[node name="RegenTimer" type="Timer" parent="." unique_id=1076244985]
+wait_time = 3.0
+autostart = true
+
 [connection signal="body_entered" from="HurtBox" to="." method="_on_hurt_box_body_entered"]
+[connection signal="timeout" from="RegenTimer" to="." method="_on_regen_timer_timeout"]
