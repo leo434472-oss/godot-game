@@ -1,6 +1,6 @@
 extends CharacterBody2D
 var killcount : int = 0
-var enemy_fast_speed = 200
+var enemy_fast_speed = 175
 var enemy_fast_health :int= 100
 var enemy_normal_damage :int = 10
 
