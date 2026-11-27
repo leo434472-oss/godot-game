@@ -89,4 +89,4 @@ func showMuzzleFlash():
 
 func _on_regen_timer_timeout() -> void:
 	if player_health < max_health:
-		player_health = min(player_health + 5.0, max_health)
+		player_health += 5

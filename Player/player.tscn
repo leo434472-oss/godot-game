@@ -54,7 +54,8 @@ stream = ExtResource("7_od3ui")
 volume_db = -15.656
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=957987243]
-zoom = Vector2(5.12, 5.12)
+enabled = false
+zoom = Vector2(9.64, 9.64)
 script = ExtResource("8_od3ui")
 
 [node name="Node2D" type="Node2D" parent="." unique_id=364565614 groups=["Player"]]

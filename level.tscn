@@ -6,6 +6,7 @@
 [ext_resource type="FontFile" uid="uid://bysc47c2iiipm" path="res://Fonts/Game Paused DEMO.otf" id="2_oi3di"]
 [ext_resource type="Script" uid="uid://c15kdf70uw8e6" path="res://button.gd" id="3_0b4ue"]
 [ext_resource type="Texture2D" uid="uid://d18dd24358aic" path="res://HealthUpIcon.png" id="4_km5ld"]
+[ext_resource type="Texture2D" uid="uid://bilvkpx1j4sok" path="res://SpeedUpIcon1.png" id="6_i2t4f"]
 [ext_resource type="AudioStream" uid="uid://b042pgsld2iys" path="res://Sounds/Grenade3.wav" id="7_n6hdu"]
 [ext_resource type="Texture2D" uid="uid://bsv2cq118kbxd" path="res://Backroundv1.webp" id="8_km5ld"]
 
@@ -29,8 +30,6 @@ size = Vector2(205.43744, 270.875)
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2orkt"]
 bg_color = Color(0.8745098, 0.09803922, 0.21568628, 1)
 
-[sub_resource type="Theme" id="Theme_km5ld"]
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_krcgb"]
 size = Vector2(2310, 102)
 
@@ -45,6 +44,7 @@ scale = Vector2(0.31, 0.31)
 script = ExtResource("1_u52ul")
 
 [node name="Backround" type="Sprite2D" parent="." unique_id=1504705555]
+texture_filter = 1
 position = Vector2(1077.0001, 705)
 scale = Vector2(1.4042969, 1.4947916)
 texture = ExtResource("8_km5ld")
@@ -125,12 +125,14 @@ theme_override_styles/background = SubResource("StyleBoxFlat_8cye3")
 theme_override_styles/fill = SubResource("StyleBoxFlat_2orkt")
 
 [node name="UpgradeButtons" type="VBoxContainer" parent="HUD/UI" unique_id=1278066420]
-layout_mode = 0
-offset_left = 34.0
-offset_top = 407.0
-offset_right = 334.0
-offset_bottom = 559.0
-theme = SubResource("Theme_km5ld")
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = 257.0
+offset_right = 176.0
+offset_bottom = 419.0
+grow_vertical = 0
 
 [node name="DamageUp" type="Button" parent="HUD/UI/UpgradeButtons" unique_id=1451287550]
 layout_mode = 2
@@ -150,6 +152,7 @@ layout_mode = 2
 focus_mode = 0
 theme_override_fonts/font = ExtResource("2_0b4ue")
 theme_override_font_sizes/font_size = 20
+icon = ExtResource("6_i2t4f")
 
 [node name="Stats" type="VBoxContainer" parent="HUD/UI" unique_id=1309251616]
 layout_mode = 0
@@ -183,6 +186,12 @@ layout_mode = 2
 theme_override_fonts/font = ExtResource("2_0b4ue")
 theme_override_font_sizes/font_size = 20
 
+[node name="WaveCount" type="Label" parent="HUD/UI/Stats" unique_id=1826554302]
+layout_mode = 2
+
+[node name="EnemiesAliveCount" type="Label" parent="HUD/UI/Stats" unique_id=2055545889]
+layout_mode = 2
+
 [node name="StartCountdown" type="Label" parent="HUD/UI" unique_id=2056981009]
 layout_mode = 1
 anchors_preset = 8
@@ -200,8 +209,9 @@ theme_override_fonts/font = ExtResource("2_0b4ue")
 theme_override_font_sizes/font_size = 200
 
 [node name="Timer2" type="Timer" parent="HUD/UI" unique_id=1393523632]
-wait_time = 1.291
+wait_time = 4.061
 one_shot = true
+autostart = true
 
 [node name="quit_button" type="Button" parent="HUD/UI" unique_id=2137996892]
 layout_mode = 0
