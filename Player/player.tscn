@@ -2,11 +2,11 @@
 
 [ext_resource type="Script" uid="uid://dtfaoxviqceoo" path="res://Player/player.gd" id="1_k53q1"]
 [ext_resource type="PackedScene" uid="uid://bxidj17klfg1n" path="res://Player/bullet.tscn" id="2_fhl08"]
-[ext_resource type="FontFile" uid="uid://cu01fv3voudwi" path="res://Fonts/PixelPurl.ttf" id="3_vtle1"]
 [ext_resource type="Texture2D" uid="uid://chiqb7lk3bg3d" path="res://Sprites/PlayerSprite.png" id="4_od3ui"]
 [ext_resource type="Texture2D" uid="uid://drkoaa05lg6j4" path="res://Sprites/MuzzleFlash.png" id="5_fhl08"]
 [ext_resource type="AudioStream" uid="uid://3kxuto1xs6s8" path="res://Sounds/eaglaxle-gun-shot-1-530788.mp3" id="6_vtle1"]
 [ext_resource type="AudioStream" uid="uid://dyx1kmdb4jbxq" path="res://Sounds/dragon-studio-gun-reload-2-511308.mp3" id="7_od3ui"]
+[ext_resource type="Script" uid="uid://bunuk2gwsjbro" path="res://Player/node_2d.gd" id="8_00tjw"]
 [ext_resource type="Script" uid="uid://ljur7xwcwptm" path="res://Player/camera_2d.gd" id="8_od3ui"]
 
 [node name="Player" type="CharacterBody2D" unique_id=1763412074 groups=["Player"]]
@@ -15,16 +15,13 @@ scale = Vector2(0.07, 0.07)
 script = ExtResource("1_k53q1")
 bullet_scene = ExtResource("2_fhl08")
 
+[node name="Node2D" type="Node2D" parent="." unique_id=364565614 groups=["Player"]]
+top_level = true
+scale = Vector2(0.07, 0.07)
+script = ExtResource("8_00tjw")
+
 [node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="." unique_id=526872653]
 polygon = PackedVector2Array(-63.636364, -36.363636, 100, -36.363636, 90.90909, 0, 32, 7, 27.272728, 27.272728, -13, 29, -27, 81, -63.636364, 72.72727, -78, 58, -57, 10, -63.636364, 0)
-
-[node name="AmmoCount" type="Label" parent="." unique_id=104708011]
-offset_left = 55.072464
-offset_top = 40.579712
-offset_right = 243.47826
-offset_bottom = 126.57971
-theme_override_fonts/font = ExtResource("3_vtle1")
-theme_override_font_sizes/font_size = 100
 
 [node name="HurtBox" type="Area2D" parent="." unique_id=1278070897 groups=["Player"]]
 scale = Vector2(0.07, 0.07)
@@ -62,10 +59,6 @@ scale = Vector2(0.07, 0.07)
 enabled = false
 zoom = Vector2(9.64, 9.64)
 script = ExtResource("8_od3ui")
-
-[node name="Node2D" type="Node2D" parent="." unique_id=364565614 groups=["Player"]]
-top_level = true
-scale = Vector2(0.07, 0.07)
 
 [node name="RegenTimer" type="Timer" parent="." unique_id=1076244985]
 wait_time = 3.0

@@ -146,6 +146,7 @@ func spawn_enemies():
 		await get_tree().create_timer(2).timeout
 		add_child(enemy_normal)
 		enemies_alive += 1
+		EnemiesAliveCount.text = "Enemies alive: " + str(enemies_alive)
 
 	for j in range(enemy_fast_to_spawn):
 		var enemy_fast = enemy_fast_scene.instantiate()
@@ -157,6 +158,7 @@ func spawn_enemies():
 		await get_tree().create_timer(3).timeout
 		add_child(enemy_fast)
 		enemies_alive += 1
+		EnemiesAliveCount.text = "Enemies alive: " + str(enemies_alive)
 
 	for h in range(enemy_buff_to_spawn):
 		var enemy_buff = enemy_buff_scene.instantiate()
@@ -168,8 +170,8 @@ func spawn_enemies():
 		await get_tree().create_timer(5).timeout
 		add_child(enemy_buff)
 		enemies_alive += 1
+		EnemiesAliveCount.text = "Enemies alive: " + str(enemies_alive)
 
-	EnemiesAliveCount.text = "Enemies alive: " + str(enemies_alive)
 	is_spawning_enemies = false
 
 	if enemies_alive == 0:

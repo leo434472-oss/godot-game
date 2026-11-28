@@ -40,7 +40,7 @@ size = Vector2(2304, 116.75)
 size = Vector2(88, 2462)
 
 [node name="level" type="Node2D" unique_id=1452691641]
-scale = Vector2(0.31, 0.31)
+scale = Vector2(0.65, 0.65)
 script = ExtResource("1_u52ul")
 
 [node name="Backround" type="Sprite2D" parent="." unique_id=1504705555]
@@ -49,53 +49,53 @@ position = Vector2(1077.0001, 705)
 scale = Vector2(1.4042969, 1.4947916)
 texture = ExtResource("8_km5ld")
 
-[node name="Buldings" type="StaticBody2D" parent="." unique_id=1040933526]
-position = Vector2(1095, -500.375)
-scale = Vector2(1.0000001, 1)
+[node name="Buldings" type="StaticBody2D" parent="Backround" unique_id=1040933526]
+position = Vector2(12.81781, -806.3833)
+scale = Vector2(0.7121002, 0.66898954)
 collision_layer = 3
 collision_mask = 3
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Buldings" unique_id=6219766]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Backround/Buldings" unique_id=6219766]
 position = Vector2(-387.49994, 658.875)
 shape = SubResource("RectangleShape2D_0r1o6")
 
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="Buldings" unique_id=2002509661]
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Backround/Buldings" unique_id=2002509661]
 position = Vector2(-359.74994, 908.625)
 shape = SubResource("RectangleShape2D_km5ld")
 
-[node name="CollisionShape2D3" type="CollisionShape2D" parent="Buldings" unique_id=180390660]
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Backround/Buldings" unique_id=180390660]
 position = Vector2(-52.875, 919.375)
 shape = SubResource("RectangleShape2D_i2t4f")
 
-[node name="CollisionShape2D4" type="CollisionShape2D" parent="Buldings" unique_id=348848791]
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="Backround/Buldings" unique_id=348848791]
 position = Vector2(310.5625, 908.5)
 shape = SubResource("RectangleShape2D_8cye3")
 
-[node name="CollisionShape2D5" type="CollisionShape2D" parent="Buldings" unique_id=962186550]
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="Backround/Buldings" unique_id=962186550]
 position = Vector2(386.71875, 675.8125)
 shape = SubResource("RectangleShape2D_2orkt")
 
-[node name="CollisionShape2D6" type="CollisionShape2D" parent="Buldings" unique_id=1149264538]
+[node name="CollisionShape2D6" type="CollisionShape2D" parent="Backround/Buldings" unique_id=1149264538]
 position = Vector2(-387.49994, 658.875)
 scale = Vector2(0.94, 0.94)
 shape = SubResource("RectangleShape2D_0r1o6")
 
-[node name="CollisionShape2D7" type="CollisionShape2D" parent="Buldings" unique_id=615966113]
+[node name="CollisionShape2D7" type="CollisionShape2D" parent="Backround/Buldings" unique_id=615966113]
 position = Vector2(-359.74994, 908.625)
 scale = Vector2(0.94, 0.94)
 shape = SubResource("RectangleShape2D_km5ld")
 
-[node name="CollisionShape2D8" type="CollisionShape2D" parent="Buldings" unique_id=598850079]
+[node name="CollisionShape2D8" type="CollisionShape2D" parent="Backround/Buldings" unique_id=598850079]
 position = Vector2(-52.875, 919.375)
 scale = Vector2(0.94, 0.94)
 shape = SubResource("RectangleShape2D_i2t4f")
 
-[node name="CollisionShape2D9" type="CollisionShape2D" parent="Buldings" unique_id=1226081377]
+[node name="CollisionShape2D9" type="CollisionShape2D" parent="Backround/Buldings" unique_id=1226081377]
 position = Vector2(310.5625, 908.5)
 scale = Vector2(0.94, 0.94)
 shape = SubResource("RectangleShape2D_8cye3")
 
-[node name="CollisionShape2D10" type="CollisionShape2D" parent="Buldings" unique_id=1874748044]
+[node name="CollisionShape2D10" type="CollisionShape2D" parent="Backround/Buldings" unique_id=1874748044]
 position = Vector2(386.71875, 675.8125)
 scale = Vector2(0.94, 0.94)
 shape = SubResource("RectangleShape2D_2orkt")
@@ -113,6 +113,16 @@ anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
+[node name="AmmoCount" type="Label" parent="HUD/UI" unique_id=1872749645]
+top_level = true
+layout_mode = 0
+offset_left = 825.0
+offset_top = 587.0
+offset_right = 951.0
+offset_bottom = 673.0
+theme_override_fonts/font = ExtResource("2_0b4ue")
+theme_override_font_sizes/font_size = 100
+
 [node name="HealthBar" type="ProgressBar" parent="HUD/UI" unique_id=867079516]
 layout_mode = 0
 offset_left = 414.0
@@ -129,14 +139,15 @@ layout_mode = 1
 anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
-offset_top = 257.0
+offset_top = 418.0
 offset_right = 176.0
-offset_bottom = 419.0
+offset_bottom = 578.0
 grow_vertical = 0
 
 [node name="DamageUp" type="Button" parent="HUD/UI/UpgradeButtons" unique_id=1451287550]
 layout_mode = 2
 focus_mode = 0
+theme_override_colors/icon_normal_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("2_0b4ue")
 theme_override_font_sizes/font_size = 20
 
@@ -199,10 +210,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = 896.0
-offset_top = 469.0
-offset_right = 1431.0
-offset_bottom = 704.0
+offset_left = 599.0
+offset_top = 127.0
+offset_right = 1134.0
+offset_bottom = 362.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_fonts/font = ExtResource("2_0b4ue")
@@ -228,10 +239,10 @@ script = ExtResource("3_0b4ue")
 
 [node name="KillCount" type="Label" parent="HUD/UI" unique_id=1439580454]
 layout_mode = 0
-offset_left = 39.0
-offset_top = 43.0
-offset_right = 299.0
-offset_bottom = 194.0
+offset_left = 226.0
+offset_top = -71.0
+offset_right = 411.0
+offset_bottom = -27.0
 theme_override_fonts/font = ExtResource("2_0b4ue")
 theme_override_font_sizes/font_size = 50
 

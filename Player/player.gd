@@ -2,7 +2,7 @@ extends CharacterBody2D
 var is_dead: bool = false
 @export var bullet_scene : PackedScene 
 @onready var muzzle: Marker2D = $Muzzle
-@onready var ammoCount : Label = $AmmoCount
+@onready var ammoCount : Label = $"../HUD/UI/AmmoCount"
 @onready var muzzleFlash : Sprite2D = $Muzzle/MuzzleFlash
 var bullet_left : int = 15
 var max_bullets : int = 15
@@ -88,5 +88,5 @@ func showMuzzleFlash():
 
 
 func _on_regen_timer_timeout() -> void:
-	if player_health < max_health:
+	if player_health < Stats.max_health:
 		player_health += 5
