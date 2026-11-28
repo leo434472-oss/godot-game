@@ -11,7 +11,7 @@
 
 [node name="Player" type="CharacterBody2D" unique_id=1763412074 groups=["Player"]]
 top_level = true
-scale = Vector2(0.04, 0.04)
+scale = Vector2(0.07, 0.07)
 script = ExtResource("1_k53q1")
 bullet_scene = ExtResource("2_fhl08")
 
@@ -27,6 +27,7 @@ theme_override_fonts/font = ExtResource("3_vtle1")
 theme_override_font_sizes/font_size = 100
 
 [node name="HurtBox" type="Area2D" parent="." unique_id=1278070897 groups=["Player"]]
+scale = Vector2(0.07, 0.07)
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="HurtBox" unique_id=1202025982]
 polygon = PackedVector2Array(-63.636364, -36.363636, 100, -36.363636, 90.90909, 0, 32, 7, 27.272728, 27.272728, -13, 29, -27, 81, -63.636364, 72.72727, -78, 58, -57, 10, -63.636364, 0)
@@ -38,6 +39,7 @@ texture = ExtResource("4_od3ui")
 
 [node name="Muzzle" type="Marker2D" parent="." unique_id=930635594]
 position = Vector2(0.71, -26)
+scale = Vector2(0.07, 0.07)
 
 [node name="MuzzleFlash" type="Sprite2D" parent="Muzzle" unique_id=1794206159]
 visible = false
@@ -46,21 +48,24 @@ scale = Vector2(1.2187501, 1)
 texture = ExtResource("5_fhl08")
 
 [node name="ShootSound" type="AudioStreamPlayer2D" parent="Muzzle" unique_id=1511321272]
+scale = Vector2(0.07, 0.07)
 stream = ExtResource("6_vtle1")
 volume_db = 3.914
 
 [node name="ReloadSound" type="AudioStreamPlayer2D" parent="Muzzle" unique_id=343917044]
+scale = Vector2(0.07, 0.07)
 stream = ExtResource("7_od3ui")
 volume_db = -15.656
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=957987243]
+scale = Vector2(0.07, 0.07)
 enabled = false
 zoom = Vector2(9.64, 9.64)
 script = ExtResource("8_od3ui")
 
 [node name="Node2D" type="Node2D" parent="." unique_id=364565614 groups=["Player"]]
 top_level = true
-scale = Vector2(0.345, 0.345)
+scale = Vector2(0.07, 0.07)
 
 [node name="RegenTimer" type="Timer" parent="." unique_id=1076244985]
 wait_time = 3.0

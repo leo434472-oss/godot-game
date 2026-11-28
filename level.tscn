@@ -258,6 +258,9 @@ shape = SubResource("RectangleShape2D_1ainy")
 
 [node name="Player" parent="." unique_id=1763412074 instance=ExtResource("2_1ainy")]
 
+[node name="Camera2D2" type="Camera2D" parent="Player" unique_id=751613839]
+zoom = Vector2(4, 4)
+
 [connection signal="pressed" from="HUD/UI/UpgradeButtons/DamageUp" to="." method="_on_damage_up_pressed"]
 [connection signal="pressed" from="HUD/UI/UpgradeButtons/HealthUp" to="." method="_on_health_up_pressed"]
 [connection signal="pressed" from="HUD/UI/UpgradeButtons/SpeedUp" to="." method="_on_speed_up_pressed"]

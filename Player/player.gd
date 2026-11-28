@@ -4,8 +4,8 @@ var is_dead: bool = false
 @onready var muzzle: Marker2D = $Muzzle
 @onready var ammoCount : Label = $AmmoCount
 @onready var muzzleFlash : Sprite2D = $Muzzle/MuzzleFlash
-var bullet_left : int = 12
-var max_bullets : int = 12
+var bullet_left : int = 15
+var max_bullets : int = 15
 var speed: float
 var max_health: int
 var player_health: int 

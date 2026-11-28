@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cj8c0pli00as4"
-path="res://.godot/imported/ufinsihedmap.webp-ba85bb926852ec74331e6186c52d0fcb.ctex"
+path="res://.godot/imported/ufinsihedmap.webp-1504cab327b97c77cac7435098b57df0.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/ufinsihedmap.webp"
-dest_files=["res://.godot/imported/ufinsihedmap.webp-ba85bb926852ec74331e6186c52d0fcb.ctex"]
+source_file="res://ufinsihedmap.webp"
+dest_files=["res://.godot/imported/ufinsihedmap.webp-1504cab327b97c77cac7435098b57df0.ctex"]
 
 [params]
 
